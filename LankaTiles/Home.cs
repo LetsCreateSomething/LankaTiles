@@ -29,7 +29,7 @@ namespace LankaTiles
 
         private void button1_Click(object sender, EventArgs e)
         {
-            addTIN.Visible = true;
+            
             viewTin.Visible = true;
 
             addTon.Visible = false;
@@ -52,14 +52,14 @@ namespace LankaTiles
             stockBal.Visible = false;
             uncollect.Visible = false;
 
-            addInvoice.Visible = false;
+           
             viewInvoice.Visible = false;
-            removeInvoce.Visible = false;
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            addTIN.Visible = false;
+            
             viewTin.Visible = false;
 
             addTon.Visible = true;
@@ -82,14 +82,14 @@ namespace LankaTiles
             stockBal.Visible = false;
             uncollect.Visible = false;
 
-            addInvoice.Visible = false;
+            
             viewInvoice.Visible = false;
-            removeInvoce.Visible = false;
+           
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            addTIN.Visible = false;
+            
             viewTin.Visible = false;
 
             addTon.Visible = false;
@@ -112,14 +112,14 @@ namespace LankaTiles
             stockBal.Visible = false;
             uncollect.Visible = false;
 
-            addInvoice.Visible = false;
+          
             viewInvoice.Visible = false;
-            removeInvoce.Visible = false;
+          
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            addTIN.Visible = false;
+            
             viewTin.Visible = false;
 
             addTon.Visible = false;
@@ -142,14 +142,14 @@ namespace LankaTiles
             stockBal.Visible = false;
             uncollect.Visible = false;
 
-            addInvoice.Visible = false;
+           
             viewInvoice.Visible = false;
-            removeInvoce.Visible = false;
+           
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            addTIN.Visible = false;
+            
             viewTin.Visible = false;
 
             addTon.Visible = false;
@@ -172,14 +172,14 @@ namespace LankaTiles
             stockBal.Visible = false;
             uncollect.Visible = false;
 
-            addInvoice.Visible = false;
+          
             viewInvoice.Visible = false;
-            removeInvoce.Visible = false;
+          
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            addTIN.Visible = false;
+           
             viewTin.Visible = false;
 
             addTon.Visible = false;
@@ -202,14 +202,14 @@ namespace LankaTiles
             stockBal.Visible = true;
             uncollect.Visible = true;
 
-            addInvoice.Visible = false;
+           
             viewInvoice.Visible = false;
-            removeInvoce.Visible = false;
+           
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            addTIN.Visible = false;
+           
             viewTin.Visible = false;
 
             addTon.Visible = false;
@@ -232,9 +232,9 @@ namespace LankaTiles
             stockBal.Visible = false;
             uncollect.Visible = false;
 
-            addInvoice.Visible = true;
+           
             viewInvoice.Visible = true;
-            removeInvoce.Visible = true;
+          
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -244,8 +244,7 @@ namespace LankaTiles
 
         private void addTIN_Click(object sender, EventArgs e)
         {
-            AddTIN frmAddTin = new AddTIN();
-            frmAddTin.ShowDialog();
+           
         }
 
         private void viewTin_Click(object sender, EventArgs e)
@@ -346,8 +345,7 @@ namespace LankaTiles
 
         private void addInvoice_Click(object sender, EventArgs e)
         {
-            AddInvoice frmAddInvoice = new AddInvoice();
-            frmAddInvoice.ShowDialog();
+            
         }
 
         private void viewInvoice_Click(object sender, EventArgs e)
@@ -358,8 +356,7 @@ namespace LankaTiles
 
         private void removeInvoce_Click(object sender, EventArgs e)
         {
-            RemoveInvoice removeInvoice = new RemoveInvoice();
-            removeInvoice.ShowDialog();
+           
         }
     }
 }

@@ -16,7 +16,7 @@ namespace LankaTiles
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ManageGIN());
+            Application.Run(new Home());
         }
     }
 }

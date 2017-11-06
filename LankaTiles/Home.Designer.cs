@@ -40,7 +40,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.addTIN = new System.Windows.Forms.Button();
             this.viewTin = new System.Windows.Forms.Button();
             this.addTon = new System.Windows.Forms.Button();
             this.viewTon = new System.Windows.Forms.Button();
@@ -57,9 +56,7 @@
             this.report4 = new System.Windows.Forms.Button();
             this.stockBal = new System.Windows.Forms.Button();
             this.uncollect = new System.Windows.Forms.Button();
-            this.addInvoice = new System.Windows.Forms.Button();
             this.viewInvoice = new System.Windows.Forms.Button();
-            this.removeInvoce = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -227,7 +224,6 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.flowLayoutPanel1.Controls.Add(this.addTIN);
             this.flowLayoutPanel1.Controls.Add(this.viewTin);
             this.flowLayoutPanel1.Controls.Add(this.addTon);
             this.flowLayoutPanel1.Controls.Add(this.viewTon);
@@ -244,30 +240,11 @@
             this.flowLayoutPanel1.Controls.Add(this.report4);
             this.flowLayoutPanel1.Controls.Add(this.stockBal);
             this.flowLayoutPanel1.Controls.Add(this.uncollect);
-            this.flowLayoutPanel1.Controls.Add(this.addInvoice);
             this.flowLayoutPanel1.Controls.Add(this.viewInvoice);
-            this.flowLayoutPanel1.Controls.Add(this.removeInvoce);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(57, 23);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(543, 509);
             this.flowLayoutPanel1.TabIndex = 1;
-            // 
-            // addTIN
-            // 
-            this.addTIN.BackColor = System.Drawing.Color.Transparent;
-            this.addTIN.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addTIN.BackgroundImage")));
-            this.addTIN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.addTIN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addTIN.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addTIN.ForeColor = System.Drawing.Color.Black;
-            this.addTIN.Location = new System.Drawing.Point(3, 3);
-            this.addTIN.Name = "addTIN";
-            this.addTIN.Size = new System.Drawing.Size(101, 85);
-            this.addTIN.TabIndex = 0;
-            this.addTIN.Text = "Add TIN";
-            this.addTIN.UseVisualStyleBackColor = false;
-            this.addTIN.Visible = false;
-            this.addTIN.Click += new System.EventHandler(this.addTIN_Click);
             // 
             // viewTin
             // 
@@ -277,7 +254,7 @@
             this.viewTin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.viewTin.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewTin.ForeColor = System.Drawing.Color.Black;
-            this.viewTin.Location = new System.Drawing.Point(110, 3);
+            this.viewTin.Location = new System.Drawing.Point(3, 3);
             this.viewTin.Name = "viewTin";
             this.viewTin.Size = new System.Drawing.Size(101, 85);
             this.viewTin.TabIndex = 1;
@@ -294,7 +271,7 @@
             this.addTon.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addTon.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addTon.ForeColor = System.Drawing.Color.Black;
-            this.addTon.Location = new System.Drawing.Point(217, 3);
+            this.addTon.Location = new System.Drawing.Point(110, 3);
             this.addTon.Name = "addTon";
             this.addTon.Size = new System.Drawing.Size(101, 85);
             this.addTon.TabIndex = 2;
@@ -311,7 +288,7 @@
             this.viewTon.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.viewTon.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewTon.ForeColor = System.Drawing.Color.Black;
-            this.viewTon.Location = new System.Drawing.Point(324, 3);
+            this.viewTon.Location = new System.Drawing.Point(217, 3);
             this.viewTon.Name = "viewTon";
             this.viewTon.Size = new System.Drawing.Size(101, 85);
             this.viewTon.TabIndex = 3;
@@ -328,7 +305,7 @@
             this.updateTon.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.updateTon.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateTon.ForeColor = System.Drawing.Color.Black;
-            this.updateTon.Location = new System.Drawing.Point(431, 3);
+            this.updateTon.Location = new System.Drawing.Point(324, 3);
             this.updateTon.Name = "updateTon";
             this.updateTon.Size = new System.Drawing.Size(101, 85);
             this.updateTon.TabIndex = 4;
@@ -345,7 +322,7 @@
             this.removeTon.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.removeTon.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeTon.ForeColor = System.Drawing.Color.Black;
-            this.removeTon.Location = new System.Drawing.Point(3, 94);
+            this.removeTon.Location = new System.Drawing.Point(431, 3);
             this.removeTon.Name = "removeTon";
             this.removeTon.Size = new System.Drawing.Size(101, 85);
             this.removeTon.TabIndex = 5;
@@ -362,7 +339,7 @@
             this.addGin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addGin.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addGin.ForeColor = System.Drawing.Color.Black;
-            this.addGin.Location = new System.Drawing.Point(110, 94);
+            this.addGin.Location = new System.Drawing.Point(3, 94);
             this.addGin.Name = "addGin";
             this.addGin.Size = new System.Drawing.Size(101, 85);
             this.addGin.TabIndex = 6;
@@ -379,7 +356,7 @@
             this.removeGin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.removeGin.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeGin.ForeColor = System.Drawing.Color.Black;
-            this.removeGin.Location = new System.Drawing.Point(217, 94);
+            this.removeGin.Location = new System.Drawing.Point(110, 94);
             this.removeGin.Name = "removeGin";
             this.removeGin.Size = new System.Drawing.Size(101, 85);
             this.removeGin.TabIndex = 7;
@@ -396,7 +373,7 @@
             this.viewGin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.viewGin.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewGin.ForeColor = System.Drawing.Color.Black;
-            this.viewGin.Location = new System.Drawing.Point(324, 94);
+            this.viewGin.Location = new System.Drawing.Point(217, 94);
             this.viewGin.Name = "viewGin";
             this.viewGin.Size = new System.Drawing.Size(101, 85);
             this.viewGin.TabIndex = 8;
@@ -413,7 +390,7 @@
             this.viewGrn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.viewGrn.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewGrn.ForeColor = System.Drawing.Color.Black;
-            this.viewGrn.Location = new System.Drawing.Point(431, 94);
+            this.viewGrn.Location = new System.Drawing.Point(324, 94);
             this.viewGrn.Name = "viewGrn";
             this.viewGrn.Size = new System.Drawing.Size(101, 85);
             this.viewGrn.TabIndex = 9;
@@ -430,7 +407,7 @@
             this.addGrn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addGrn.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addGrn.ForeColor = System.Drawing.Color.Black;
-            this.addGrn.Location = new System.Drawing.Point(3, 185);
+            this.addGrn.Location = new System.Drawing.Point(431, 94);
             this.addGrn.Name = "addGrn";
             this.addGrn.Size = new System.Drawing.Size(101, 85);
             this.addGrn.TabIndex = 10;
@@ -447,7 +424,7 @@
             this.report1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.report1.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.report1.ForeColor = System.Drawing.Color.Black;
-            this.report1.Location = new System.Drawing.Point(110, 185);
+            this.report1.Location = new System.Drawing.Point(3, 185);
             this.report1.Name = "report1";
             this.report1.Size = new System.Drawing.Size(101, 85);
             this.report1.TabIndex = 11;
@@ -464,7 +441,7 @@
             this.report2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.report2.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.report2.ForeColor = System.Drawing.Color.Black;
-            this.report2.Location = new System.Drawing.Point(217, 185);
+            this.report2.Location = new System.Drawing.Point(110, 185);
             this.report2.Name = "report2";
             this.report2.Size = new System.Drawing.Size(101, 85);
             this.report2.TabIndex = 12;
@@ -481,7 +458,7 @@
             this.report3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.report3.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.report3.ForeColor = System.Drawing.Color.Black;
-            this.report3.Location = new System.Drawing.Point(324, 185);
+            this.report3.Location = new System.Drawing.Point(217, 185);
             this.report3.Name = "report3";
             this.report3.Size = new System.Drawing.Size(101, 85);
             this.report3.TabIndex = 13;
@@ -498,7 +475,7 @@
             this.report4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.report4.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.report4.ForeColor = System.Drawing.Color.Black;
-            this.report4.Location = new System.Drawing.Point(431, 185);
+            this.report4.Location = new System.Drawing.Point(324, 185);
             this.report4.Name = "report4";
             this.report4.Size = new System.Drawing.Size(101, 85);
             this.report4.TabIndex = 14;
@@ -515,7 +492,7 @@
             this.stockBal.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.stockBal.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stockBal.ForeColor = System.Drawing.Color.Black;
-            this.stockBal.Location = new System.Drawing.Point(3, 276);
+            this.stockBal.Location = new System.Drawing.Point(431, 185);
             this.stockBal.Name = "stockBal";
             this.stockBal.Size = new System.Drawing.Size(101, 85);
             this.stockBal.TabIndex = 15;
@@ -532,7 +509,7 @@
             this.uncollect.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.uncollect.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uncollect.ForeColor = System.Drawing.Color.Black;
-            this.uncollect.Location = new System.Drawing.Point(110, 276);
+            this.uncollect.Location = new System.Drawing.Point(3, 276);
             this.uncollect.Name = "uncollect";
             this.uncollect.Size = new System.Drawing.Size(111, 85);
             this.uncollect.TabIndex = 16;
@@ -540,23 +517,6 @@
             this.uncollect.UseVisualStyleBackColor = false;
             this.uncollect.Visible = false;
             this.uncollect.Click += new System.EventHandler(this.uncollect_Click);
-            // 
-            // addInvoice
-            // 
-            this.addInvoice.BackColor = System.Drawing.Color.Transparent;
-            this.addInvoice.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addInvoice.BackgroundImage")));
-            this.addInvoice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.addInvoice.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addInvoice.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addInvoice.ForeColor = System.Drawing.Color.Black;
-            this.addInvoice.Location = new System.Drawing.Point(227, 276);
-            this.addInvoice.Name = "addInvoice";
-            this.addInvoice.Size = new System.Drawing.Size(101, 85);
-            this.addInvoice.TabIndex = 17;
-            this.addInvoice.Text = "Add Invoice";
-            this.addInvoice.UseVisualStyleBackColor = false;
-            this.addInvoice.Visible = false;
-            this.addInvoice.Click += new System.EventHandler(this.addInvoice_Click);
             // 
             // viewInvoice
             // 
@@ -566,7 +526,7 @@
             this.viewInvoice.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.viewInvoice.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewInvoice.ForeColor = System.Drawing.Color.Black;
-            this.viewInvoice.Location = new System.Drawing.Point(334, 276);
+            this.viewInvoice.Location = new System.Drawing.Point(120, 276);
             this.viewInvoice.Name = "viewInvoice";
             this.viewInvoice.Size = new System.Drawing.Size(101, 85);
             this.viewInvoice.TabIndex = 18;
@@ -574,23 +534,6 @@
             this.viewInvoice.UseVisualStyleBackColor = false;
             this.viewInvoice.Visible = false;
             this.viewInvoice.Click += new System.EventHandler(this.viewInvoice_Click);
-            // 
-            // removeInvoce
-            // 
-            this.removeInvoce.BackColor = System.Drawing.Color.Transparent;
-            this.removeInvoce.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("removeInvoce.BackgroundImage")));
-            this.removeInvoce.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.removeInvoce.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.removeInvoce.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeInvoce.ForeColor = System.Drawing.Color.Black;
-            this.removeInvoce.Location = new System.Drawing.Point(3, 367);
-            this.removeInvoce.Name = "removeInvoce";
-            this.removeInvoce.Size = new System.Drawing.Size(101, 85);
-            this.removeInvoce.TabIndex = 19;
-            this.removeInvoce.Text = "Remove Invoice";
-            this.removeInvoce.UseVisualStyleBackColor = false;
-            this.removeInvoce.Visible = false;
-            this.removeInvoce.Click += new System.EventHandler(this.removeInvoce_Click);
             // 
             // pictureBox1
             // 
@@ -637,7 +580,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button addTIN;
         private System.Windows.Forms.Button viewTin;
         private System.Windows.Forms.Button addTon;
         private System.Windows.Forms.Button viewTon;
@@ -654,9 +596,7 @@
         private System.Windows.Forms.Button report4;
         private System.Windows.Forms.Button stockBal;
         private System.Windows.Forms.Button uncollect;
-        private System.Windows.Forms.Button addInvoice;
         private System.Windows.Forms.Button viewInvoice;
-        private System.Windows.Forms.Button removeInvoce;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
     }

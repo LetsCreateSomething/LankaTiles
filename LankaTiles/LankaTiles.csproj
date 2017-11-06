@@ -73,18 +73,6 @@
     <Compile Include="AddGRN.Designer.cs">
       <DependentUpon>AddGRN.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddInvoice.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddInvoice.Designer.cs">
-      <DependentUpon>AddInvoice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AddTIN.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddTIN.Designer.cs">
-      <DependentUpon>AddTIN.cs</DependentUpon>
-    </Compile>
     <Compile Include="AddTON.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,12 +132,6 @@
     </Compile>
     <Compile Include="RemoveGIN.Designer.cs">
       <DependentUpon>RemoveGIN.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RemoveInvoice.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RemoveInvoice.Designer.cs">
-      <DependentUpon>RemoveInvoice.cs</DependentUpon>
     </Compile>
     <Compile Include="RemoveTON.cs">
       <SubType>Form</SubType>
@@ -213,9 +195,6 @@
     <EmbeddedResource Include="AddGIN.resx">
       <DependentUpon>AddGIN.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddTIN.resx">
-      <DependentUpon>AddTIN.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -236,6 +215,9 @@
     </Compile>
     <EmbeddedResource Include="RemoveGIN.resx">
       <DependentUpon>RemoveGIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewTIN.resx">
+      <DependentUpon>ViewTIN.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
