@@ -21,7 +21,7 @@ namespace LankaTiles
         {
             try
             {
-                con = new SqlConnection("Data Source=DESKTOP-PLMQAVR\\SQLEXPRESS;Initial Catalog=LankaTiles;Integrated Security=True");
+                con = new SqlConnection("Data Source=DESKTOP-PLMQAVR\\SQLEXPRESS;Initial Catalog=LankaTiles2;Integrated Security=True");
 
             }
             catch (Exception)
@@ -54,7 +54,7 @@ namespace LankaTiles
 
         public void inserUpdateDelete(String query)
         {
-            con.ConnectionString = "Data Source=DESKTOP-PLMQAVR\\SQLEXPRESS;Initial Catalog=LankaTiles;Integrated Security=True";
+            con.ConnectionString = "Data Source=DESKTOP-PLMQAVR\\SQLEXPRESS;Initial Catalog=LankaTiles2;Integrated Security=True";
             con.Open();
             cmd = new SqlCommand(query, con);
             cmd.ExecuteNonQuery();

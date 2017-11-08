@@ -12,6 +12,7 @@ namespace LankaTiles
 {
     public partial class Form1 : Form
     {
+
         public static String pass;
         public static bool loggeduserStatus;
         //  String Value;
@@ -34,7 +35,7 @@ namespace LankaTiles
                 //MessageBox.Show(this, "Logged in Success!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
                 pass = txtUsername.Text;
-                string a = "insert into LoginAudit (userName,lastLoginTime) values('" + Form1.pass + "','" + DateTime.Now + "')";
+                string a = "insert into LoginAudit (userName,loginTime) values('" + Form1.pass + "','" + DateTime.Now + "')";
                 db.inserUpdateDelete(a);
                
                 Home home = new Home();
@@ -46,7 +47,12 @@ namespace LankaTiles
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            MessageBox.Show("Please contact company IT Manager for creating new accuonts!");
+        }
 
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

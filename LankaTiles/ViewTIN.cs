@@ -32,11 +32,22 @@ namespace LankaTiles
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int selectedTINID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-            TransferInNote tin = new TransferInNote();
-            //MessageBox.Show(selectedTINID.ToString());
-            dt = tin.searchTIN(selectedTINID);
-            dataGridView2.DataSource = dt;            
+            try
+            {
+                int selectedTINID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                if (selectedTINID != null)
+                {
+                    TransferInNote tin = new TransferInNote();
+                    //MessageBox.Show(selectedTINID.ToString());
+                    dt = tin.searchTIN(selectedTINID);
+                    dataGridView2.DataSource = dt;
+                }
+            }
+            catch (Exception)
+            {
+               
+            }   
+                     
         }
     }
 }
