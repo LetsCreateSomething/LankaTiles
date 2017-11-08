@@ -29,7 +29,7 @@ namespace LankaTiles
         private void AddGIN_Load(object sender, EventArgs e)
         {
             Database db = new Database();
-            db.inserUpdateDelete("delete from AddGINTemp");
+            db.inserUpdateDelete("delete from GINTemp");
             lblDate.Text = DateTime.Today.ToString("d");
             lblTime.Text = DateTime.Now.ToString("HH:mm");
             txtDiscounts.Text = null;
