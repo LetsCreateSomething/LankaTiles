@@ -29,7 +29,8 @@ namespace LankaTiles
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            tinReport.Visible = false;
+            ginReport.Visible = false;
             viewTin.Visible = true;
             addTIN.Visible = true;
             addTon.Visible = false;
@@ -50,7 +51,7 @@ namespace LankaTiles
             report3.Visible = false;
             report4.Visible = false;
 
-            stockBal.Visible = false;
+         
             uncollect.Visible = false;
 
 
@@ -60,9 +61,9 @@ namespace LankaTiles
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            tinReport.Visible = false;
             viewTin.Visible = false;
-
+            ginReport.Visible = false;
             addTIN.Visible = false;
             addTon.Visible = true;
             viewTon.Visible = true;
@@ -90,7 +91,7 @@ namespace LankaTiles
             report3.Visible = false;
             report4.Visible = false;
 
-            stockBal.Visible = false;
+          
             uncollect.Visible = false;
 
 
@@ -100,7 +101,8 @@ namespace LankaTiles
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            tinReport.Visible = false;
+            ginReport.Visible = false;
             viewTin.Visible = false;
             addTIN.Visible = false;
             addTon.Visible = false;
@@ -128,7 +130,7 @@ namespace LankaTiles
             report3.Visible = false;
             report4.Visible = false;
 
-            stockBal.Visible = false;
+           
             uncollect.Visible = false;
 
 
@@ -138,14 +140,14 @@ namespace LankaTiles
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            tinReport.Visible = false;
             viewTin.Visible = false;
             addTIN.Visible = false;
             addTon.Visible = false;
             viewTon.Visible = false;
             updateTon.Visible = false;
             removeTon.Visible = false;
-
+            ginReport.Visible = false;
             addGin.Visible = false;
             removeGin.Visible = false;
             viewGin.Visible = false;
@@ -158,7 +160,7 @@ namespace LankaTiles
             report3.Visible = false;
             report4.Visible = false;
 
-            stockBal.Visible = false;
+          
             uncollect.Visible = false;
 
 
@@ -168,14 +170,15 @@ namespace LankaTiles
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            ginReport.Visible = true;
+            tinReport.Visible = true;
             viewTin.Visible = false;
             addTIN.Visible = false;
             addTon.Visible = false;
             viewTon.Visible = false;
             updateTon.Visible = false;
             removeTon.Visible = false;
-
+          
             addGin.Visible = false;
             removeGin.Visible = false;
             viewGin.Visible = false;
@@ -183,12 +186,11 @@ namespace LankaTiles
             viewGrn.Visible = false;
             addGrn.Visible = false;
 
-            report1.Visible = true;
+            report1.Visible = false;
             report2.Visible = true;
             report3.Visible = true;
             report4.Visible = true;
-
-            stockBal.Visible = false;
+          
             uncollect.Visible = false;
 
 
@@ -198,14 +200,14 @@ namespace LankaTiles
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            tinReport.Visible = false;
             viewTin.Visible = false;
             addTIN.Visible = false;
             addTon.Visible = false;
             viewTon.Visible = false;
             updateTon.Visible = false;
             removeTon.Visible = false;
-
+            ginReport.Visible = false;
             addGin.Visible = false;
             removeGin.Visible = false;
             viewGin.Visible = false;
@@ -213,12 +215,11 @@ namespace LankaTiles
             viewGrn.Visible = false;
             addGrn.Visible = false;
 
-            report1.Visible = false;
+            report1.Visible = true;
             report2.Visible = false;
             report3.Visible = false;
             report4.Visible = false;
-
-            stockBal.Visible = true;
+            
             uncollect.Visible = true;
 
 
@@ -228,14 +229,14 @@ namespace LankaTiles
 
         private void button7_Click(object sender, EventArgs e)
         {
-
+            tinReport.Visible = false;
             viewTin.Visible = false;
             addTIN.Visible = false;
             addTon.Visible = false;
             viewTon.Visible = false;
             updateTon.Visible = false;
             removeTon.Visible = false;
-
+            ginReport.Visible = false;
             addGin.Visible = false;
             removeGin.Visible = false;
             viewGin.Visible = false;
@@ -248,7 +249,7 @@ namespace LankaTiles
             report3.Visible = false;
             report4.Visible = false;
 
-            stockBal.Visible = false;
+          
             uncollect.Visible = false;
 
 
@@ -413,6 +414,12 @@ namespace LankaTiles
         {
             AddTIN addTIN = new AddTIN();
             addTIN.ShowDialog();
+        }
+
+        private void ginReport_Click(object sender, EventArgs e)
+        {
+            GINReport gINReport = new GINReport();
+            gINReport.ShowDialog();
         }
     }
 }

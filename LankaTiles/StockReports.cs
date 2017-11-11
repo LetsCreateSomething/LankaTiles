@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace LankaTiles
 {
@@ -15,6 +16,14 @@ namespace LankaTiles
         public StockReports()
         {
             InitializeComponent();
+        }
+
+        private void StockReports_Load(object sender, EventArgs e)
+        {            
+            ReportDocument cryRpt = new ReportDocument();
+            cryRpt.Load("C:/Users/Sashika/source/repos/LankaTiles/LankaTiles/Reports/StockReport.rpt");
+            crystalReportViewer1.ReportSource = cryRpt;
+            crystalReportViewer1.Refresh();          
         }
     }
 }

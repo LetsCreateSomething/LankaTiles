@@ -42,6 +42,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.viewTin = new System.Windows.Forms.Button();
+            this.addTIN = new System.Windows.Forms.Button();
             this.addTon = new System.Windows.Forms.Button();
             this.viewTon = new System.Windows.Forms.Button();
             this.updateTon = new System.Windows.Forms.Button();
@@ -55,11 +56,11 @@
             this.report2 = new System.Windows.Forms.Button();
             this.report3 = new System.Windows.Forms.Button();
             this.report4 = new System.Windows.Forms.Button();
-            this.stockBal = new System.Windows.Forms.Button();
             this.uncollect = new System.Windows.Forms.Button();
             this.viewInvoice = new System.Windows.Forms.Button();
+            this.ginReport = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.addTIN = new System.Windows.Forms.Button();
+            this.tinReport = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -252,9 +253,10 @@
             this.flowLayoutPanel1.Controls.Add(this.report2);
             this.flowLayoutPanel1.Controls.Add(this.report3);
             this.flowLayoutPanel1.Controls.Add(this.report4);
-            this.flowLayoutPanel1.Controls.Add(this.stockBal);
             this.flowLayoutPanel1.Controls.Add(this.uncollect);
             this.flowLayoutPanel1.Controls.Add(this.viewInvoice);
+            this.flowLayoutPanel1.Controls.Add(this.ginReport);
+            this.flowLayoutPanel1.Controls.Add(this.tinReport);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(57, 23);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(543, 509);
@@ -276,6 +278,23 @@
             this.viewTin.UseVisualStyleBackColor = false;
             this.viewTin.Visible = false;
             this.viewTin.Click += new System.EventHandler(this.viewTin_Click);
+            // 
+            // addTIN
+            // 
+            this.addTIN.BackColor = System.Drawing.Color.Transparent;
+            this.addTIN.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addTIN.BackgroundImage")));
+            this.addTIN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.addTIN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.addTIN.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addTIN.ForeColor = System.Drawing.Color.Black;
+            this.addTIN.Location = new System.Drawing.Point(110, 3);
+            this.addTIN.Name = "addTIN";
+            this.addTIN.Size = new System.Drawing.Size(101, 85);
+            this.addTIN.TabIndex = 19;
+            this.addTIN.Text = "Add TIN";
+            this.addTIN.UseVisualStyleBackColor = false;
+            this.addTIN.Visible = false;
+            this.addTIN.Click += new System.EventHandler(this.addTIN_Click_1);
             // 
             // addTon
             // 
@@ -442,7 +461,7 @@
             this.report1.Name = "report1";
             this.report1.Size = new System.Drawing.Size(101, 85);
             this.report1.TabIndex = 11;
-            this.report1.Text = "Stock Reports";
+            this.report1.Text = "Stock Report";
             this.report1.UseVisualStyleBackColor = false;
             this.report1.Visible = false;
             this.report1.Click += new System.EventHandler(this.report1_Click);
@@ -459,7 +478,7 @@
             this.report2.Name = "report2";
             this.report2.Size = new System.Drawing.Size(101, 85);
             this.report2.TabIndex = 12;
-            this.report2.Text = "Good Receive Reports";
+            this.report2.Text = "Good Receive Report";
             this.report2.UseVisualStyleBackColor = false;
             this.report2.Visible = false;
             this.report2.Click += new System.EventHandler(this.report2_Click);
@@ -476,7 +495,7 @@
             this.report3.Name = "report3";
             this.report3.Size = new System.Drawing.Size(101, 85);
             this.report3.TabIndex = 13;
-            this.report3.Text = "Decrepency Detail Reports";
+            this.report3.Text = "Decrepency Detail Report";
             this.report3.UseVisualStyleBackColor = false;
             this.report3.Visible = false;
             this.report3.Click += new System.EventHandler(this.report3_Click);
@@ -493,27 +512,10 @@
             this.report4.Name = "report4";
             this.report4.Size = new System.Drawing.Size(101, 85);
             this.report4.TabIndex = 14;
-            this.report4.Text = "Good Issue Reports";
+            this.report4.Text = "Good Issue Report";
             this.report4.UseVisualStyleBackColor = false;
             this.report4.Visible = false;
             this.report4.Click += new System.EventHandler(this.report4_Click);
-            // 
-            // stockBal
-            // 
-            this.stockBal.BackColor = System.Drawing.Color.Transparent;
-            this.stockBal.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("stockBal.BackgroundImage")));
-            this.stockBal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.stockBal.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.stockBal.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stockBal.ForeColor = System.Drawing.Color.Black;
-            this.stockBal.Location = new System.Drawing.Point(3, 276);
-            this.stockBal.Name = "stockBal";
-            this.stockBal.Size = new System.Drawing.Size(101, 85);
-            this.stockBal.TabIndex = 15;
-            this.stockBal.Text = "Stock Balance";
-            this.stockBal.UseVisualStyleBackColor = false;
-            this.stockBal.Visible = false;
-            this.stockBal.Click += new System.EventHandler(this.stockBal_Click);
             // 
             // uncollect
             // 
@@ -523,7 +525,7 @@
             this.uncollect.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.uncollect.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uncollect.ForeColor = System.Drawing.Color.Black;
-            this.uncollect.Location = new System.Drawing.Point(110, 276);
+            this.uncollect.Location = new System.Drawing.Point(3, 276);
             this.uncollect.Name = "uncollect";
             this.uncollect.Size = new System.Drawing.Size(111, 85);
             this.uncollect.TabIndex = 16;
@@ -540,7 +542,7 @@
             this.viewInvoice.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.viewInvoice.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewInvoice.ForeColor = System.Drawing.Color.Black;
-            this.viewInvoice.Location = new System.Drawing.Point(227, 276);
+            this.viewInvoice.Location = new System.Drawing.Point(120, 276);
             this.viewInvoice.Name = "viewInvoice";
             this.viewInvoice.Size = new System.Drawing.Size(101, 85);
             this.viewInvoice.TabIndex = 18;
@@ -548,6 +550,23 @@
             this.viewInvoice.UseVisualStyleBackColor = false;
             this.viewInvoice.Visible = false;
             this.viewInvoice.Click += new System.EventHandler(this.viewInvoice_Click);
+            // 
+            // ginReport
+            // 
+            this.ginReport.BackColor = System.Drawing.Color.Transparent;
+            this.ginReport.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ginReport.BackgroundImage")));
+            this.ginReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ginReport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ginReport.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ginReport.ForeColor = System.Drawing.Color.Black;
+            this.ginReport.Location = new System.Drawing.Point(227, 276);
+            this.ginReport.Name = "ginReport";
+            this.ginReport.Size = new System.Drawing.Size(101, 85);
+            this.ginReport.TabIndex = 20;
+            this.ginReport.Text = "GIN Report";
+            this.ginReport.UseVisualStyleBackColor = false;
+            this.ginReport.Visible = false;
+            this.ginReport.Click += new System.EventHandler(this.ginReport_Click);
             // 
             // pictureBox1
             // 
@@ -560,22 +579,21 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // addTIN
+            // tinReport
             // 
-            this.addTIN.BackColor = System.Drawing.Color.Transparent;
-            this.addTIN.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addTIN.BackgroundImage")));
-            this.addTIN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.addTIN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addTIN.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addTIN.ForeColor = System.Drawing.Color.Black;
-            this.addTIN.Location = new System.Drawing.Point(110, 3);
-            this.addTIN.Name = "addTIN";
-            this.addTIN.Size = new System.Drawing.Size(101, 85);
-            this.addTIN.TabIndex = 19;
-            this.addTIN.Text = "Add TIN";
-            this.addTIN.UseVisualStyleBackColor = false;
-            this.addTIN.Visible = false;
-            this.addTIN.Click += new System.EventHandler(this.addTIN_Click_1);
+            this.tinReport.BackColor = System.Drawing.Color.Transparent;
+            this.tinReport.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tinReport.BackgroundImage")));
+            this.tinReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tinReport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.tinReport.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tinReport.ForeColor = System.Drawing.Color.Black;
+            this.tinReport.Location = new System.Drawing.Point(334, 276);
+            this.tinReport.Name = "tinReport";
+            this.tinReport.Size = new System.Drawing.Size(101, 85);
+            this.tinReport.TabIndex = 21;
+            this.tinReport.Text = "TIN Report";
+            this.tinReport.UseVisualStyleBackColor = false;
+            this.tinReport.Visible = false;
             // 
             // Home
             // 
@@ -626,12 +644,13 @@
         private System.Windows.Forms.Button report2;
         private System.Windows.Forms.Button report3;
         private System.Windows.Forms.Button report4;
-        private System.Windows.Forms.Button stockBal;
         private System.Windows.Forms.Button uncollect;
         private System.Windows.Forms.Button viewInvoice;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblTINNotification;
         private System.Windows.Forms.Button addTIN;
+        private System.Windows.Forms.Button ginReport;
+        private System.Windows.Forms.Button tinReport;
     }
 }
