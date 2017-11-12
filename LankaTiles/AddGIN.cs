@@ -16,150 +16,94 @@ namespace LankaTiles
         public AddGIN()
         {
             InitializeComponent();
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            txtCode.Clear();
-            txtDescription.Clear();
-            txtQty.Clear();
-            txtPrice.Clear();
-        }
-
+        }      
         private void AddGIN_Load(object sender, EventArgs e)
         {
-            Database db = new Database();
-            db.inserUpdateDelete("delete from GINTemp");
-            lblDate.Text = DateTime.Today.ToString("d");
-            lblTime.Text = DateTime.Now.ToString("HH:mm");
-            txtDiscounts.Text = null;
-        }
-
-        private void txtDiscounts_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            
-        }
-
-        public void txtDiscounts_TextChanged(object sender, EventArgs e)
-        {
-            try
+            // TODO: This line of code loads data into the 'lankaTiles2DataSet.invoice' table. You can move, or remove it, as needed.
+            this.invoiceTableAdapter.Fill(this.lankaTiles2DataSet.invoice);
+            Invoice invoice = new Invoice();
+            GoodIssueNote gin = new GoodIssueNote();
+            dt = invoice.getInvoiceforGIN();          
+            string GINID = gin.getMaxGINID();
+            if (string.IsNullOrEmpty(GINID))
             {
-                if (!string.IsNullOrEmpty(txtDiscounts.Text))
-                {
-                    txtNetValue.Text = (Convert.ToDouble(txtDiscounts.Text) * Convert.ToDouble(dt1.Rows[0][0])).ToString();
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Please enter discounts like 0.(value)!");                
-            }
-        }
-
-        private void txtTotalValue_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked==true)
-            {
-                txtDiscounts.Enabled = true;
+                txtGINID.Text = "1";
             }
             else
             {
-                txtDiscounts.Enabled = false;                
+                txtGINID.Text =(Convert.ToInt16(GINID)+1).ToString();
+            }           
+            lblDate.Text = DateTime.Now.ToShortDateString();
+            lblTime.Text = DateTime.Now.ToShortTimeString();
+            cmbInvoice.DataSource = dt;
+            cmbInvoice.ValueMember = "invID";
+            gin.dropTemp();
+        }
+        
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex==3)
+            {
+                Invoice invoice = new Invoice();
+                try
+                {
+                    int selectedInvId = Convert.ToInt32(dataGridView2.CurrentRow.Cells[0].Value);
+                    int selectedItemID = Convert.ToInt32(dataGridView2.CurrentRow.Cells[1].Value);
+                    int selectedQty = Convert.ToInt32(dataGridView2.CurrentRow.Cells[2].Value);
+                    bool isChecked = (bool)dataGridView2.CurrentRow.Cells[3].Value;
+                    if (isChecked==false)
+                    {
+                        if (selectedInvId != null && selectedItemID != null)
+                        {
+                            invoice.updateInvoice(selectedInvId, selectedItemID,1);                         
+                            GoodIssueNote gin = new GoodIssueNote();
+                            gin.addGINTemp(txtGINID.Text,selectedItemID,selectedQty,selectedInvId);
+                            dt3 = gin.getGINTemp();
+                            dataGridView3.DataSource = dt3;
+                        }
+                    }
+                    else
+                    {
+                        if (selectedInvId != null && selectedItemID != null)
+                        {
+                            invoice.updateInvoice(selectedInvId, selectedItemID, 0);                           
+                            MessageBox.Show("updated as not Issued!");
+                        }
+                    }                    
+                }
+                catch (Exception)
+                {
+                }
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void cmbInvoice_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Are you sure!", "Warning!",MessageBoxButtons.YesNo);
-            if (dr == DialogResult.Yes)
-            {
-                Database db = new Database();
-                db.inserUpdateDelete("delete from AddGINTemp");
-                lblDate.Text = DateTime.Today.ToString("d");
-                lblTime.Text = DateTime.Now.ToString("HH:mm");
-                dataGridView1.DataSource = null;
-                txtTotalValue.Clear();
-                txtDiscounts.Clear();
-                txtNetValue.Clear();
-                this.btnClear_Click(sender, e);
-            }
+            Invoice invoice = new Invoice();
+            string id = cmbInvoice.Text;
+            dt = invoice.getInvoice(Convert.ToInt16(id));
+            dataGridView2.DataSource = dt;
+            txtCustomer.Text = invoice.getCustomerName(id);
         }
 
         private void btnGenerateGIN_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtName.Text)||string.IsNullOrEmpty(txtAddress.Text))
+            GoodIssueNote gin = new GoodIssueNote();
+            dt = gin.getGINTemp();
+            if (dt.Rows.Count > 0)
             {
-                MessageBox.Show("Empty Areas! Please fill.");
-            }
+                gin.Customer = txtCustomer.Text;
+                gin.Date = DateTime.Today.ToShortDateString();
+                gin.ginID = txtGINID.Text;
+                gin.addGIN();
+                MessageBox.Show("GIN Added Successfully!");
+                this.Close();
+            }        
             else
             {
-                Database db = new Database();
-                string query1 = "insert into GIN (name, invoice, address, date, time, totalValue, discounts, netValue) values ('" + txtName.Text + "','" + cmbInvoice.SelectedIndex + "','" + txtAddress.Text + "','" + lblDate.Text + "','" + lblTime.Text + "','" + txtTotalValue.Text + "','" + txtDiscounts.Text + "','" + txtNetValue.Text + "')";
-                db.inserUpdateDelete(query1);
-                dt2 = db.select("select GINID from GIN where name = '" + txtName.Text + "'");
-                string id = dt2.Rows[0][0].ToString();
-                string query2 = "create table GIN" + id + " (GINID int , code varchar(100), description varchar(300), qty float , price float, value float)";
-                db.inserUpdateDelete(query2);
-                dt3 = db.select("select * from AddGINTemp");
-                for (int i = 0; dt3.Rows.Count > i; i++)
-                {
-                    //insert Query
-                    db.inserUpdateDelete("insert into GIN" + id + " values ( '" + id + "', '" + dt3.Rows[i].ItemArray.GetValue(0).ToString() + "', '" + dt3.Rows[i].ItemArray.GetValue(1).ToString() + "', '" + dt3.Rows[i].ItemArray.GetValue(2).ToString() + "','" + dt3.Rows[i].ItemArray.GetValue(3).ToString() + "','" + dt3.Rows[i].ItemArray.GetValue(4).ToString() + "')");
-                    MessageBox.Show("GIN added successfully!");
-                    this.Close();
-                }
-            } 
-        }
-
-        private void btnAddItem_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtCode.Text) || string.IsNullOrEmpty(txtDescription.Text) || string.IsNullOrEmpty(txtQty.Text) || string.IsNullOrEmpty(txtPrice.Text))
-            {
-                MessageBox.Show("Empty areas. Please fill all fields!");
+                MessageBox.Show("No items selected!");
             }
-            else if (!txtQty.Text.Any(Char.IsDigit)||!txtPrice.Text.Any(Char.IsDigit))
-            {
-                MessageBox.Show("Quantity or Price is not valid!");
-                txtPrice.Clear();
-                txtQty.Clear();
-            }
-            else
-            {
-                Database db = new Database();
-                string query = "insert into AddGINTemp values ('" + txtCode.Text + "','" + txtDescription.Text + "','" + txtQty.Text + "','" + txtPrice.Text + "','" + (Convert.ToDouble(txtQty.Text) * Convert.ToDouble(txtPrice.Text)).ToString() + "')";
-                db.inserUpdateDelete(query);                
-                dt = db.select("select * from AddGINTemp");
-                dataGridView1.DataSource = dt;
-
-                //Change datagridview column Header Names
-                dataGridView1.Columns[0].HeaderText = "Code";
-                dataGridView1.Columns[1].HeaderText = "Description";
-                dataGridView1.Columns[2].HeaderText = "Quantity";
-                dataGridView1.Columns[3].HeaderText = "Price";
-                dataGridView1.Columns[4].HeaderText = "Value";
-
-                txtCode.Clear();
-                txtDescription.Clear();
-                txtPrice.Clear();               
-                txtQty.Clear();
-                try
-                {
-                    dt1 = db.select("select sum(value) from AddGINTemp");
-                    txtTotalValue.Text = dt1.Rows[0][0].ToString();
-                    txtDiscounts.Clear();
-                    txtNetValue.Clear();
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Something went wrong with the database!");                    
-                }
-                txtNetValue.Text = txtTotalValue.Text;
-
-            }
+            
         }
     }
 }
