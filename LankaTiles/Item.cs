@@ -67,6 +67,16 @@ namespace LankaTiles
         }
         public void adjustMinimumStockBalance() { }
         public void viewStock() { }
-        public void updateStock() { }
+
+        public void updateStock(string GRNID)
+        {
+            Database db = new Database();
+            DataTable dt = new DataTable();
+            dt = db.select("select itemID, qty from GRNDetails where GRNID = " + GRNID + "");
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                db.inserUpdateDelete("update item set qty = qty+" + dt.Rows[i][1].ToString() + " where itemID = " + dt.Rows[i][0].ToString() + "");
+            }
+        }
     }
 }

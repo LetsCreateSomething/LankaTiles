@@ -70,11 +70,10 @@ namespace LankaTiles
         }
         public void removeGIN(int GINid)
         {
-            string query = "delete from GIN where GINID = " + GINid + "";
-            string dropTable = "drop table GIN" + GINid + " ";
+            string query = "delete from GIN where GINID = " + GINid + "";            
             db = new Database();  
             db.inserUpdateDelete(query);
-            db.inserUpdateDelete(dropTable);
+            db.inserUpdateDelete("delete from GINDetails where GINID = "+GINid+"");
         }
 
        

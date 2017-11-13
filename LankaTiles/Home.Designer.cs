@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblGRNNotification = new System.Windows.Forms.Label();
             this.lblTINNotification = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
@@ -51,7 +52,6 @@
             this.removeGin = new System.Windows.Forms.Button();
             this.viewGin = new System.Windows.Forms.Button();
             this.viewGrn = new System.Windows.Forms.Button();
-            this.addGrn = new System.Windows.Forms.Button();
             this.report1 = new System.Windows.Forms.Button();
             this.report2 = new System.Windows.Forms.Button();
             this.report3 = new System.Windows.Forms.Button();
@@ -59,8 +59,8 @@
             this.uncollect = new System.Windows.Forms.Button();
             this.viewInvoice = new System.Windows.Forms.Button();
             this.ginReport = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tinReport = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -69,6 +69,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Controls.Add(this.lblGRNNotification);
             this.panel2.Controls.Add(this.lblTINNotification);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.button8);
@@ -84,6 +85,16 @@
             this.panel2.Size = new System.Drawing.Size(303, 558);
             this.panel2.TabIndex = 1;
             this.panel2.MouseLeave += new System.EventHandler(this.panel2_MouseLeave);
+            // 
+            // lblGRNNotification
+            // 
+            this.lblGRNNotification.AutoSize = true;
+            this.lblGRNNotification.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGRNNotification.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lblGRNNotification.Location = new System.Drawing.Point(243, 173);
+            this.lblGRNNotification.Name = "lblGRNNotification";
+            this.lblGRNNotification.Size = new System.Drawing.Size(0, 39);
+            this.lblGRNNotification.TabIndex = 9;
             // 
             // lblTINNotification
             // 
@@ -248,7 +259,6 @@
             this.flowLayoutPanel1.Controls.Add(this.removeGin);
             this.flowLayoutPanel1.Controls.Add(this.viewGin);
             this.flowLayoutPanel1.Controls.Add(this.viewGrn);
-            this.flowLayoutPanel1.Controls.Add(this.addGrn);
             this.flowLayoutPanel1.Controls.Add(this.report1);
             this.flowLayoutPanel1.Controls.Add(this.report2);
             this.flowLayoutPanel1.Controls.Add(this.report3);
@@ -344,8 +354,7 @@
             this.updateTon.TabIndex = 4;
             this.updateTon.Text = "Update TON";
             this.updateTon.UseVisualStyleBackColor = false;
-            this.updateTon.Visible = false;
-            this.updateTon.Click += new System.EventHandler(this.updateTon_Click);
+            this.updateTon.Visible = false;           
             // 
             // removeTon
             // 
@@ -427,27 +436,10 @@
             this.viewGrn.Name = "viewGrn";
             this.viewGrn.Size = new System.Drawing.Size(101, 85);
             this.viewGrn.TabIndex = 9;
-            this.viewGrn.Text = "View GRN";
+            this.viewGrn.Text = "Add GRN";
             this.viewGrn.UseVisualStyleBackColor = false;
             this.viewGrn.Visible = false;
             this.viewGrn.Click += new System.EventHandler(this.viewGrn_Click);
-            // 
-            // addGrn
-            // 
-            this.addGrn.BackColor = System.Drawing.Color.Transparent;
-            this.addGrn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addGrn.BackgroundImage")));
-            this.addGrn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.addGrn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addGrn.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addGrn.ForeColor = System.Drawing.Color.Black;
-            this.addGrn.Location = new System.Drawing.Point(3, 185);
-            this.addGrn.Name = "addGrn";
-            this.addGrn.Size = new System.Drawing.Size(101, 85);
-            this.addGrn.TabIndex = 10;
-            this.addGrn.Text = "Add GRN";
-            this.addGrn.UseVisualStyleBackColor = false;
-            this.addGrn.Visible = false;
-            this.addGrn.Click += new System.EventHandler(this.addGrn_Click);
             // 
             // report1
             // 
@@ -457,7 +449,7 @@
             this.report1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.report1.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.report1.ForeColor = System.Drawing.Color.Black;
-            this.report1.Location = new System.Drawing.Point(110, 185);
+            this.report1.Location = new System.Drawing.Point(3, 185);
             this.report1.Name = "report1";
             this.report1.Size = new System.Drawing.Size(101, 85);
             this.report1.TabIndex = 11;
@@ -474,7 +466,7 @@
             this.report2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.report2.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.report2.ForeColor = System.Drawing.Color.Black;
-            this.report2.Location = new System.Drawing.Point(217, 185);
+            this.report2.Location = new System.Drawing.Point(110, 185);
             this.report2.Name = "report2";
             this.report2.Size = new System.Drawing.Size(101, 85);
             this.report2.TabIndex = 12;
@@ -491,7 +483,7 @@
             this.report3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.report3.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.report3.ForeColor = System.Drawing.Color.Black;
-            this.report3.Location = new System.Drawing.Point(324, 185);
+            this.report3.Location = new System.Drawing.Point(217, 185);
             this.report3.Name = "report3";
             this.report3.Size = new System.Drawing.Size(101, 85);
             this.report3.TabIndex = 13;
@@ -508,7 +500,7 @@
             this.report4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.report4.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.report4.ForeColor = System.Drawing.Color.Black;
-            this.report4.Location = new System.Drawing.Point(431, 185);
+            this.report4.Location = new System.Drawing.Point(324, 185);
             this.report4.Name = "report4";
             this.report4.Size = new System.Drawing.Size(101, 85);
             this.report4.TabIndex = 14;
@@ -568,17 +560,6 @@
             this.ginReport.Visible = false;
             this.ginReport.Click += new System.EventHandler(this.ginReport_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(-2, 553);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(946, 73);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
             // tinReport
             // 
             this.tinReport.BackColor = System.Drawing.Color.Transparent;
@@ -594,6 +575,17 @@
             this.tinReport.Text = "TIN Report";
             this.tinReport.UseVisualStyleBackColor = false;
             this.tinReport.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(-2, 553);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(946, 73);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // Home
             // 
@@ -639,7 +631,6 @@
         private System.Windows.Forms.Button removeGin;
         private System.Windows.Forms.Button viewGin;
         private System.Windows.Forms.Button viewGrn;
-        private System.Windows.Forms.Button addGrn;
         private System.Windows.Forms.Button report1;
         private System.Windows.Forms.Button report2;
         private System.Windows.Forms.Button report3;
@@ -652,5 +643,6 @@
         private System.Windows.Forms.Button addTIN;
         private System.Windows.Forms.Button ginReport;
         private System.Windows.Forms.Button tinReport;
+        private System.Windows.Forms.Label lblGRNNotification;
     }
 }

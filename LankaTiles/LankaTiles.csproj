@@ -122,12 +122,6 @@
     <Compile Include="AddGIN.Designer.cs">
       <DependentUpon>AddGIN.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddGRN.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddGRN.Designer.cs">
-      <DependentUpon>AddGRN.cs</DependentUpon>
-    </Compile>
     <Compile Include="AddTIN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -331,6 +325,12 @@
     <EmbeddedResource Include="TINReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>TINReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewGRN.resx">
+      <DependentUpon>ViewGRN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewInvoice.resx">
+      <DependentUpon>ViewInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewTIN.resx">
       <DependentUpon>ViewTIN.cs</DependentUpon>

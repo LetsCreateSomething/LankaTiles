@@ -34,29 +34,19 @@ namespace LankaTiles
             viewTin.Visible = true;
             addTIN.Visible = true;
             addTon.Visible = false;
-            viewTon.Visible = false;
-            
+            viewTon.Visible = false;            
             updateTon.Visible = false;
             removeTon.Visible = false;
-
             addGin.Visible = false;
             removeGin.Visible = false;
             viewGin.Visible = false;
-
             viewGrn.Visible = false;
-            addGrn.Visible = false;
-
             report1.Visible = false;
             report2.Visible = false;
             report3.Visible = false;
             report4.Visible = false;
-
-         
             uncollect.Visible = false;
-
-
             viewInvoice.Visible = false;
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -77,24 +67,16 @@ namespace LankaTiles
                 updateTon.Visible = false;
                 removeTon.Visible = false;
             }
-            
 
             addGin.Visible = false;
             removeGin.Visible = false;
             viewGin.Visible = false;
-
             viewGrn.Visible = false;
-            addGrn.Visible = false;
-
             report1.Visible = false;
             report2.Visible = false;
             report3.Visible = false;
-            report4.Visible = false;
-
-          
+            report4.Visible = false;            
             uncollect.Visible = false;
-
-
             viewInvoice.Visible = false;
 
         }
@@ -109,7 +91,6 @@ namespace LankaTiles
             viewTon.Visible = false;
             updateTon.Visible = false;
             removeTon.Visible = false;
-
             addGin.Visible = true;
             if (Form1.pass == "manager")
             {
@@ -118,24 +99,15 @@ namespace LankaTiles
             else
             {
                 removeGin.Visible = false;
-            }
-            
+            }            
             viewGin.Visible = true;
-
             viewGrn.Visible = false;
-            addGrn.Visible = false;
-
             report1.Visible = false;
             report2.Visible = false;
             report3.Visible = false;
             report4.Visible = false;
-
-           
             uncollect.Visible = false;
-
-
             viewInvoice.Visible = false;
-
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -151,21 +123,13 @@ namespace LankaTiles
             addGin.Visible = false;
             removeGin.Visible = false;
             viewGin.Visible = false;
-
             viewGrn.Visible = true;
-            addGrn.Visible = true;
-
             report1.Visible = false;
             report2.Visible = false;
             report3.Visible = false;
-            report4.Visible = false;
-
-          
+            report4.Visible = false;          
             uncollect.Visible = false;
-
-
             viewInvoice.Visible = false;
-
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -177,25 +141,17 @@ namespace LankaTiles
             addTon.Visible = false;
             viewTon.Visible = false;
             updateTon.Visible = false;
-            removeTon.Visible = false;
-          
+            removeTon.Visible = false;          
             addGin.Visible = false;
             removeGin.Visible = false;
             viewGin.Visible = false;
-
             viewGrn.Visible = false;
-            addGrn.Visible = false;
-
             report1.Visible = false;
             report2.Visible = true;
             report3.Visible = true;
-            report4.Visible = true;
-          
+            report4.Visible = true;         
             uncollect.Visible = false;
-
-
             viewInvoice.Visible = false;
-
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -211,20 +167,13 @@ namespace LankaTiles
             addGin.Visible = false;
             removeGin.Visible = false;
             viewGin.Visible = false;
-
             viewGrn.Visible = false;
-            addGrn.Visible = false;
-
             report1.Visible = true;
             report2.Visible = false;
             report3.Visible = false;
-            report4.Visible = false;
-            
+            report4.Visible = false;            
             uncollect.Visible = true;
-
-
             viewInvoice.Visible = false;
-
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -240,21 +189,13 @@ namespace LankaTiles
             addGin.Visible = false;
             removeGin.Visible = false;
             viewGin.Visible = false;
-
             viewGrn.Visible = false;
-            addGrn.Visible = false;
-
             report1.Visible = false;
             report2.Visible = false;
             report3.Visible = false;
-            report4.Visible = false;
-
-          
+            report4.Visible = false;          
             uncollect.Visible = false;
-
-
             viewInvoice.Visible = true;
-
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -263,12 +204,7 @@ namespace LankaTiles
             Form1 frm1 = new Form1();
             frm1.Show();
         }
-
-        private void addTIN_Click(object sender, EventArgs e)
-        {
-
-        }
-
+      
         private void viewTin_Click(object sender, EventArgs e)
         {
             ViewTIN frmViewTin = new ViewTIN();
@@ -285,12 +221,7 @@ namespace LankaTiles
         {
             ViewTON frmViewTon = new ViewTON();
             frmViewTon.ShowDialog();
-        }
-
-        private void updateTon_Click(object sender, EventArgs e)
-        {
-            
-        }
+        }     
 
         private void removeTon_Click(object sender, EventArgs e)
         {
@@ -320,13 +251,7 @@ namespace LankaTiles
         {
             ViewGRN frmViewGrn = new ViewGRN();
             frmViewGrn.ShowDialog();
-        }
-
-        private void addGrn_Click(object sender, EventArgs e)
-        {
-            AddGRN frmAddGrn = new AddGRN();
-            frmAddGrn.ShowDialog();
-        }
+        }      
 
         private void report1_Click(object sender, EventArgs e)
         {
@@ -363,21 +288,11 @@ namespace LankaTiles
             UncollectedItems uncollectedItems = new UncollectedItems();
             uncollectedItems.ShowDialog();
         }
-
-        private void addInvoice_Click(object sender, EventArgs e)
-        {
-
-        }
-
+             
         private void viewInvoice_Click(object sender, EventArgs e)
         {
             ViewInvoice frmViewInvoice = new ViewInvoice();
             frmViewInvoice.ShowDialog();
-        }
-
-        private void removeInvoce_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void Home_Load(object sender, EventArgs e)
@@ -397,7 +312,7 @@ namespace LankaTiles
         private void timer1_Tick(object sender, EventArgs e)
         {
             Database db = new Database();
-            DataTable dt = new DataTable();
+            DataTable dt,dt2 = new DataTable();
             dt = db.select("select * from TON where IsRecieved = 0");
             if (dt.Rows.Count > 0)
             {
@@ -406,6 +321,16 @@ namespace LankaTiles
             else
             {
                 lblTINNotification.Text = "";
+            }
+
+            dt2 = db.select("select * from GRN where IsDelivered = 0");
+            if (dt2.Rows.Count > 0)
+            {
+                lblGRNNotification.Text = "*";
+            }
+            else
+            {
+                lblGRNNotification.Text = "";
             }
 
         }
