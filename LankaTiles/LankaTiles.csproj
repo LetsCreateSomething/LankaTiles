@@ -238,11 +238,17 @@
     <Compile Include="StockReports.Designer.cs">
       <DependentUpon>StockReports.cs</DependentUpon>
     </Compile>
-    <Compile Include="TINReport.cs">
+    <Compile Include="Reports\TINReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TINReport.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TINReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TINReport.Designer.cs">
+      <DependentUpon>TINReport.cs</DependentUpon>
     </Compile>
     <Compile Include="TransferInNote.cs" />
     <Compile Include="TransferOutNote.cs" />
@@ -307,6 +313,9 @@
     <EmbeddedResource Include="RemoveGIN.resx">
       <DependentUpon>RemoveGIN.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RemoveTON.resx">
+      <DependentUpon>RemoveTON.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\GINReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>GINReport.cs</LastGenOutput>
@@ -322,9 +331,12 @@
     <EmbeddedResource Include="StockReports.resx">
       <DependentUpon>StockReports.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TINReport.rpt">
+    <EmbeddedResource Include="Reports\TINReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>TINReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TINReport.resx">
+      <DependentUpon>TINReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewGRN.resx">
       <DependentUpon>ViewGRN.cs</DependentUpon>

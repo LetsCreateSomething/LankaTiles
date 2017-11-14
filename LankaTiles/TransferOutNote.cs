@@ -9,6 +9,8 @@ namespace LankaTiles
 {
     class TransferOutNote
     {        
+        public Database db;
+        public DataTable dt;
         private int id;
         public int Id
         {
@@ -43,23 +45,23 @@ namespace LankaTiles
 
         public DataTable getTON()
         {
-            Database db = new Database();
-            DataTable dt = new DataTable();
+            db = new Database();
+           dt = new DataTable();
             dt = db.select("select * from TON");
             return dt;
         }
 
         public DataTable getTON(int id)
         {
-            Database db = new Database();
-            DataTable dt = new DataTable();
+            db = new Database();
+            dt = new DataTable();
             dt = db.select("select * from TONDetails where TONID = " + id + "");
             return dt;
         }
 
         public void addTON()
         {
-            Database db = new Database();
+            db = new Database();
             string queryTON = "insert into TON values ("+Id+",'"+DateTime.Now.ToString()+"', '"+fromLocation+"','"+destination+"','0')";
             db.inserUpdateDelete(queryTON);
             addTONDetail();
@@ -67,19 +69,33 @@ namespace LankaTiles
 
         public void addTONDetail()
         {
-            Database db = new Database();
+            db = new Database();
             string query = "insert into TONDetails select TONID, itemID, qty from tonTemp";
             db.inserUpdateDelete(query);
         }
         public string getMaxId()
         {
-            Database db = new Database();
+            db = new Database();
             string id= db.getValue("select max(TONID) from TON");
             return id;
         }
         public void verifyTON() { }
-        public void removeTON() { }
-        public void searchTON() { }
+
+        public void removeTON(int id)
+        {
+            string query = "delete from TON where TONID = " + id + "";
+            db = new Database();           
+            db.inserUpdateDelete("delete from TONDetails where TONID = " + id + "");
+            db.inserUpdateDelete(query);
+        }
+
+        public DataTable searchTON(string search)
+        {
+            string query = "select * from TON where TONID LIKE '%" + search + "%'";
+            db = new Database();
+            dt = db.select(query);
+            return dt;
+        }
 
 
 

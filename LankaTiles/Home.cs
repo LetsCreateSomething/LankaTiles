@@ -34,8 +34,7 @@ namespace LankaTiles
             viewTin.Visible = true;
             addTIN.Visible = true;
             addTon.Visible = false;
-            viewTon.Visible = false;            
-            updateTon.Visible = false;
+            viewTon.Visible = false;           
             removeTon.Visible = false;
             addGin.Visible = false;
             removeGin.Visible = false;
@@ -58,13 +57,11 @@ namespace LankaTiles
             addTon.Visible = true;
             viewTon.Visible = true;
             if (Form1.pass == "manager")
-            {
-                updateTon.Visible = true;
+            {             
                 removeTon.Visible = true;
             }
             else
-            {
-                updateTon.Visible = false;
+            {               
                 removeTon.Visible = false;
             }
 
@@ -88,8 +85,7 @@ namespace LankaTiles
             viewTin.Visible = false;
             addTIN.Visible = false;
             addTon.Visible = false;
-            viewTon.Visible = false;
-            updateTon.Visible = false;
+            viewTon.Visible = false;           
             removeTon.Visible = false;
             addGin.Visible = true;
             if (Form1.pass == "manager")
@@ -116,8 +112,7 @@ namespace LankaTiles
             viewTin.Visible = false;
             addTIN.Visible = false;
             addTon.Visible = false;
-            viewTon.Visible = false;
-            updateTon.Visible = false;
+            viewTon.Visible = false;           
             removeTon.Visible = false;
             ginReport.Visible = false;
             addGin.Visible = false;
@@ -139,8 +134,7 @@ namespace LankaTiles
             viewTin.Visible = false;
             addTIN.Visible = false;
             addTon.Visible = false;
-            viewTon.Visible = false;
-            updateTon.Visible = false;
+            viewTon.Visible = false;           
             removeTon.Visible = false;          
             addGin.Visible = false;
             removeGin.Visible = false;
@@ -160,8 +154,7 @@ namespace LankaTiles
             viewTin.Visible = false;
             addTIN.Visible = false;
             addTon.Visible = false;
-            viewTon.Visible = false;
-            updateTon.Visible = false;
+            viewTon.Visible = false;           
             removeTon.Visible = false;
             ginReport.Visible = false;
             addGin.Visible = false;
@@ -182,8 +175,7 @@ namespace LankaTiles
             viewTin.Visible = false;
             addTIN.Visible = false;
             addTon.Visible = false;
-            viewTon.Visible = false;
-            updateTon.Visible = false;
+            viewTon.Visible = false;           
             removeTon.Visible = false;
             ginReport.Visible = false;
             addGin.Visible = false;
@@ -345,6 +337,12 @@ namespace LankaTiles
         {
             GINReport gINReport = new GINReport();
             gINReport.ShowDialog();
+        }
+
+        private void tinReport_Click(object sender, EventArgs e)
+        {
+            TINReport tONReport = new TINReport();
+            tONReport.ShowDialog();
         }
     }
 }
