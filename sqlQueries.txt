@@ -1,13 +1,100 @@
-create database LankaTiles;
-use LankaTiles;
-create table users(empID int Primary key, empName varchar(20), username varchar(20), empNIC varchar(20), empContactNo varchar(15),empType varchar(20), empDateJoined varchar(20), password varchar(20));
-drop table users;
-insert into users values (0001, 'E.A.S. Sashika', 'sashika', '973174339v' ,'0770382748', 'None', '2017/01/01', 'sashika' );
-select * from users;
+create database LankaTiles2
+use LankaTiles2
 
-//GIN
-create table AddGINTemp (code varchar(100), description varchar(300), qty float , price float, value float)
-select * from AddGINTemp
-create table GIN (GINID int primary key identity(1,1), name varchar(100), invoice varchar(50), address varchar(300), date varchar(50), time varchar(40), totalValue float, discounts float, netValue float )
-select * from gin
-select * from GIN1
+create table item(itemID int primary key, itemCode varchar (200), itemName varchar (200), unitPrice float , qty int)
+drop table item
+insert into item (itemCode, itemName, unitPrice, qty) values ('ItemCode1','ItemName1',10.00, 500)
+delete  from item
+select * from item
+
+create table TON(TONID int primary key , date varchar (200), fromLocation varchar (200), destination varchar (200),IsRecieved bit)
+insert into TON (date, fromLocation, destination) values ('Today', 'Factory','Rajagiriya warehouse')
+select * from TON
+delete from TON
+drop table TON
+select max(TONID) from TON
+SELECT TOP 1 TONID FROM TON ORDER BY TONID DESC
+
+create table tonTemp(TONID int, itemID int, itemName varchar(200), qty int, unitPrice float)
+drop table tonTemp
+select * from tonTemp
+update tonTemp set qty = qty+5 where itemID = 2
+
+
+create table TONDetails(TONID int, itemID int, qty int, primary key(TONID,itemID), foreign key (TONID) references TON(TONID), foreign key (itemID) references item(itemID))
+drop table TONDetails
+insert into TONDetails values (1,2,20,200.00)
+insert into TONDetails values (2,4,20,500.00)
+select * from TONDetails
+delete from TONDetails
+
+insert into TIN (TINID, date, fromLocation, destination) select TONID, date, fromLocation, destination from TON where TONID = 1
+create table TIN (TINID int primary key, date varchar (200), fromLocation varchar (200), destination varchar (200), QDNID int foreign key references QDN (QDNID) )
+select * from TIN
+delete  from TIN
+drop table TIN
+create table TINDetails (TINID int, itemID int, qty int, RFIDID int, primary key (TINID, itemID), foreign key (TINID) references TIN(TINID),  foreign key (itemID) references item(itemID))
+select * from TINDetails
+delete from TINDetails
+drop table TINDetails
+create table QDN (QDNID int primary key identity (1,1), date varchar (200), anyDif bit)
+
+create table QDNDetails (QDNID int, itemID int, qty int, primary key (QDNID, itemID))
+drop table QDNDetails
+
+create table RFID(RFIDID int primary key identity (1,1), RFIDName varchar (200), location varchar (200))
+
+create table GIN(GINID int primary key , date varchar (200), cusName varchar (200))
+select * from GIN
+drop table GIN
+create table GINDetails (GINID int , itemID int, qty int, invID int, primary key (GINID, itemID, invID))
+select * from GINDetails
+delete from GINDetails
+create table GINTemp (GINID int , itemID int, qty int, invID int)
+select * from GINTemp
+
+
+create table invoice (invID int primary key, date varchar (200), cusName varchar (200),IsIssued bit)
+drop table invoice
+select * from invoice
+
+create table invoiceDetails(invID int, itemID int , qty int,IsIssued bit, primary key(invID, itemID), foreign key (invID) references invoice(invID), foreign key (itemID) references item(itemID) )
+select * from invoiceDetails
+insert into invoiceDetails values (1,1,500,0)
+drop table invoiceDetails
+create table invTemp( invID int, itemID int, qty int,IsIssued bit)
+drop table invTemp
+select * from invTemp
+
+create table GRN(GRNID int primary key, date varchar (200), supID int foreign key references Supplier(supID), IsDelivered bit)
+select * from GRN
+drop table grn
+
+create table GRNTemp(GRNID int, itemID int, qty int, IsDelivered bit)
+drop table GRNTemp
+select * from GRNTemp
+
+create table Supplier(supID int primary key, supName varchar (200), location varchar (200))
+select * from Supplier
+drop table Supplier
+
+create table GRNDetails(GRNID int, itemID int, qty int, price float, primary key (GRNID, itemID))
+select * from GRNDetails
+delete from GRNDetails
+
+create table ReturnNote(retID int primary key identity (1,1), date varchar (200), cusName varchar (200))
+create table ReturnNoteDetails(retID int, itemID int, qty int, value float, primary key (retID, itemID))
+create table Report(repID int primary key identity (1,1), date varchar (200), location varchar (200))
+create table Employee(empID int primary key identity (1,1), name varchar (200), DOB varchar (50))
+create table Officer(officerID int primary key identity (1,1), empID int foreign key references Employee(empID), tableNo int, )
+create table Manager(managerID int primary key identity (1,1), empID int foreign key references Employee(empID))
+create table Cashier(cashierID int primary key identity (1,1), empID int foreign key references Employee(empID), counterNo int)
+create table Warehouses (location varchar (200))
+insert into Warehouses values ('Rajagiriya Warehouse'),('Siyabalape Warehouse')
+
+create table rptData (ID varchar(50), date varchar(100), fromLocation varchar (200))
+
+create table users (username varchar(200), password varchar (200))
+insert into users values ('officer','officer'),('manager','manager')
+create table LoginAudit (username varchar(200), loginTime varchar(100))
+select * from LoginAudit
