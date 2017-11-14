@@ -37,19 +37,19 @@
             this.lblTime = new System.Windows.Forms.Label();
             this.btnGenerateGIN = new System.Windows.Forms.Button();
             this.cmbInvoice = new System.Windows.Forms.ComboBox();
+            this.invoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lankaTiles2DataSet = new LankaTiles.LankaTiles2DataSet();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtGINID = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.lankaTiles2DataSet = new LankaTiles.LankaTiles2DataSet();
-            this.invoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.invoiceTableAdapter = new LankaTiles.LankaTiles2DataSetTableAdapters.invoiceTableAdapter();
             this.txtCustomer = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lankaTiles2DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lankaTiles2DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -108,7 +108,7 @@
             // 
             // btnGenerateGIN
             // 
-            this.btnGenerateGIN.Location = new System.Drawing.Point(554, 463);
+            this.btnGenerateGIN.Location = new System.Drawing.Point(529, 368);
             this.btnGenerateGIN.Name = "btnGenerateGIN";
             this.btnGenerateGIN.Size = new System.Drawing.Size(86, 23);
             this.btnGenerateGIN.TabIndex = 26;
@@ -128,6 +128,16 @@
             this.cmbInvoice.ValueMember = "invID";
             this.cmbInvoice.SelectedIndexChanged += new System.EventHandler(this.cmbInvoice_SelectedIndexChanged);
             // 
+            // invoiceBindingSource
+            // 
+            this.invoiceBindingSource.DataMember = "invoice";
+            this.invoiceBindingSource.DataSource = this.lankaTiles2DataSet;
+            // 
+            // lankaTiles2DataSet
+            // 
+            this.lankaTiles2DataSet.DataSetName = "LankaTiles2DataSet";
+            this.lankaTiles2DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
@@ -135,7 +145,7 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(12, 107);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(628, 96);
+            this.dataGridView2.Size = new System.Drawing.Size(603, 96);
             this.dataGridView2.TabIndex = 28;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             // 
@@ -174,18 +184,8 @@
             this.dataGridView3.Location = new System.Drawing.Point(15, 256);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.Size = new System.Drawing.Size(628, 106);
+            this.dataGridView3.Size = new System.Drawing.Size(600, 106);
             this.dataGridView3.TabIndex = 33;
-            // 
-            // lankaTiles2DataSet
-            // 
-            this.lankaTiles2DataSet.DataSetName = "LankaTiles2DataSet";
-            this.lankaTiles2DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // invoiceBindingSource
-            // 
-            this.invoiceBindingSource.DataMember = "invoice";
-            this.invoiceBindingSource.DataSource = this.lankaTiles2DataSet;
             // 
             // invoiceTableAdapter
             // 
@@ -202,7 +202,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 526);
+            this.ClientSize = new System.Drawing.Size(628, 401);
             this.Controls.Add(this.txtCustomer);
             this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.label6);
@@ -220,10 +220,10 @@
             this.Name = "AddGIN";
             this.Text = "Add Good Issue Note";
             this.Load += new System.EventHandler(this.AddGIN_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lankaTiles2DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lankaTiles2DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.invoiceBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

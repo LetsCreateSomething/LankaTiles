@@ -16,5 +16,11 @@ namespace LankaTiles
         {
             InitializeComponent();
         }
+
+        private void UncollectedItems_Load(object sender, EventArgs e)
+        {
+           
+
+        }
     }
 }

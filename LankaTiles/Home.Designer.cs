@@ -57,7 +57,6 @@
             this.report4 = new System.Windows.Forms.Button();
             this.uncollect = new System.Windows.Forms.Button();
             this.viewInvoice = new System.Windows.Forms.Button();
-            this.ginReport = new System.Windows.Forms.Button();
             this.tinReport = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
@@ -263,7 +262,6 @@
             this.flowLayoutPanel1.Controls.Add(this.report4);
             this.flowLayoutPanel1.Controls.Add(this.uncollect);
             this.flowLayoutPanel1.Controls.Add(this.viewInvoice);
-            this.flowLayoutPanel1.Controls.Add(this.ginReport);
             this.flowLayoutPanel1.Controls.Add(this.tinReport);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(57, 23);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -525,23 +523,6 @@
             this.viewInvoice.Visible = false;
             this.viewInvoice.Click += new System.EventHandler(this.viewInvoice_Click);
             // 
-            // ginReport
-            // 
-            this.ginReport.BackColor = System.Drawing.Color.Transparent;
-            this.ginReport.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ginReport.BackgroundImage")));
-            this.ginReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ginReport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ginReport.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ginReport.ForeColor = System.Drawing.Color.Black;
-            this.ginReport.Location = new System.Drawing.Point(110, 276);
-            this.ginReport.Name = "ginReport";
-            this.ginReport.Size = new System.Drawing.Size(101, 85);
-            this.ginReport.TabIndex = 20;
-            this.ginReport.Text = "GIN Report";
-            this.ginReport.UseVisualStyleBackColor = false;
-            this.ginReport.Visible = false;
-            this.ginReport.Click += new System.EventHandler(this.ginReport_Click);
-            // 
             // tinReport
             // 
             this.tinReport.BackColor = System.Drawing.Color.Transparent;
@@ -550,7 +531,7 @@
             this.tinReport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.tinReport.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tinReport.ForeColor = System.Drawing.Color.Black;
-            this.tinReport.Location = new System.Drawing.Point(217, 276);
+            this.tinReport.Location = new System.Drawing.Point(110, 276);
             this.tinReport.Name = "tinReport";
             this.tinReport.Size = new System.Drawing.Size(101, 85);
             this.tinReport.TabIndex = 21;
@@ -623,7 +604,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblTINNotification;
         private System.Windows.Forms.Button addTIN;
-        private System.Windows.Forms.Button ginReport;
         private System.Windows.Forms.Button tinReport;
         private System.Windows.Forms.Label lblGRNNotification;
     }

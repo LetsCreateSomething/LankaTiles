@@ -29,8 +29,7 @@ namespace LankaTiles
 
         private void button1_Click(object sender, EventArgs e)
         {
-            tinReport.Visible = false;
-            ginReport.Visible = false;
+            tinReport.Visible = false;           
             viewTin.Visible = true;
             addTIN.Visible = true;
             addTon.Visible = false;
@@ -51,8 +50,7 @@ namespace LankaTiles
         private void button2_Click(object sender, EventArgs e)
         {
             tinReport.Visible = false;
-            viewTin.Visible = false;
-            ginReport.Visible = false;
+            viewTin.Visible = false;          
             addTIN.Visible = false;
             addTon.Visible = true;
             viewTon.Visible = true;
@@ -80,8 +78,7 @@ namespace LankaTiles
 
         private void button6_Click(object sender, EventArgs e)
         {
-            tinReport.Visible = false;
-            ginReport.Visible = false;
+            tinReport.Visible = false;          
             viewTin.Visible = false;
             addTIN.Visible = false;
             addTon.Visible = false;
@@ -113,8 +110,7 @@ namespace LankaTiles
             addTIN.Visible = false;
             addTon.Visible = false;
             viewTon.Visible = false;           
-            removeTon.Visible = false;
-            ginReport.Visible = false;
+            removeTon.Visible = false;           
             addGin.Visible = false;
             removeGin.Visible = false;
             viewGin.Visible = false;
@@ -128,8 +124,7 @@ namespace LankaTiles
         }
 
         private void button4_Click(object sender, EventArgs e)
-        {
-            ginReport.Visible = true;
+        {           
             tinReport.Visible = true;
             viewTin.Visible = false;
             addTIN.Visible = false;
@@ -155,8 +150,7 @@ namespace LankaTiles
             addTIN.Visible = false;
             addTon.Visible = false;
             viewTon.Visible = false;           
-            removeTon.Visible = false;
-            ginReport.Visible = false;
+            removeTon.Visible = false;           
             addGin.Visible = false;
             removeGin.Visible = false;
             viewGin.Visible = false;
@@ -176,8 +170,7 @@ namespace LankaTiles
             addTIN.Visible = false;
             addTon.Visible = false;
             viewTon.Visible = false;           
-            removeTon.Visible = false;
-            ginReport.Visible = false;
+            removeTon.Visible = false;          
             addGin.Visible = false;
             removeGin.Visible = false;
             viewGin.Visible = false;
@@ -277,6 +270,26 @@ namespace LankaTiles
 
         private void uncollect_Click(object sender, EventArgs e)
         {
+            Database db = new Database();
+            DataTable dt = new DataTable();
+            dt = db.select("select * from TON where IsRecieved = 0 ");
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                string query = "insert into rptData values ('" + dt.Rows[i][0] + ""
+                    + " (TON)', '" + dt.Rows[i][1] + "','" + dt.Rows[i][2] + "')";
+                db.inserUpdateDelete(query);
+            }
+
+            dt = db.select("SELECT grn.GRNID, grn.date, sup.supName, sup.location, grn.IsDelivered FROM "
+                + " GRN grn INNER JOIN Supplier sup ON grn.supID = sup.supID where grn.IsDelivered = 0");
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                string query = "insert into rptData values ( '" + dt.Rows[i][0] + ""
+                    + " (GRN)', '" + dt.Rows[i][1] + "','" + dt.Rows[i][2] + " , " + dt.Rows[i][3].ToString() + "')";
+                db.inserUpdateDelete(query);
+            }
+
             UncollectedItems uncollectedItems = new UncollectedItems();
             uncollectedItems.ShowDialog();
         }
@@ -290,6 +303,8 @@ namespace LankaTiles
         private void Home_Load(object sender, EventArgs e)
         {
             InitTimer();
+            Database db = new Database();
+            db.inserUpdateDelete("delete from rptData");
         }
 
         private Timer timer1;
@@ -335,8 +350,7 @@ namespace LankaTiles
 
         private void ginReport_Click(object sender, EventArgs e)
         {
-            GINReport gINReport = new GINReport();
-            gINReport.ShowDialog();
+           
         }
 
         private void tinReport_Click(object sender, EventArgs e)

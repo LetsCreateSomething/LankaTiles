@@ -257,7 +257,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(67, 446);
+            this.btnBack.Location = new System.Drawing.Point(361, 419);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
             this.btnBack.TabIndex = 10;
@@ -267,7 +267,7 @@
             // 
             // btnIssue
             // 
-            this.btnIssue.Location = new System.Drawing.Point(150, 446);
+            this.btnIssue.Location = new System.Drawing.Point(444, 419);
             this.btnIssue.Name = "btnIssue";
             this.btnIssue.Size = new System.Drawing.Size(160, 23);
             this.btnIssue.TabIndex = 11;
@@ -279,7 +279,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(623, 504);
+            this.ClientSize = new System.Drawing.Size(615, 452);
             this.Controls.Add(this.btnIssue);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.groupBox1);

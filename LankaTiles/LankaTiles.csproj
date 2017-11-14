@@ -143,12 +143,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="GINReport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GINReport.Designer.cs">
-      <DependentUpon>GINReport.cs</DependentUpon>
-    </Compile>
     <Compile Include="GoodIssueNote.cs" />
     <Compile Include="GoodIssueReports.cs">
       <SubType>Form</SubType>
@@ -212,16 +206,22 @@
       <DependentUpon>GINReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\GoodRecieveReport.cs">
+    <Compile Include="Reports\GRNReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GoodRecieveReport.rpt</DependentUpon>
+      <DependentUpon>GRNReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\StockReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>StockReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\UncollectedItemsReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UncollectedItemsReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ReturnNote.cs" />
@@ -291,6 +291,12 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GoodIssueReports.resx">
+      <DependentUpon>GoodIssueReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GoodRecieveReports.resx">
+      <DependentUpon>GoodRecieveReports.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
@@ -320,13 +326,17 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>GINReport.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\GoodRecieveReport.rpt">
+    <EmbeddedResource Include="Reports\GRNReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>GoodRecieveReport.cs</LastGenOutput>
+      <LastGenOutput>GRNReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\StockReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>StockReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\UncollectedItemsReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>UncollectedItemsReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="StockReports.resx">
       <DependentUpon>StockReports.cs</DependentUpon>
@@ -337,6 +347,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TINReport.resx">
       <DependentUpon>TINReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UncollectedItems.resx">
+      <DependentUpon>UncollectedItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewGRN.resx">
       <DependentUpon>ViewGRN.cs</DependentUpon>

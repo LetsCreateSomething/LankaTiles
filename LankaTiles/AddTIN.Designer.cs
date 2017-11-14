@@ -45,7 +45,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 38);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(690, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(604, 150);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -57,12 +57,12 @@
             this.dataGridView2.Location = new System.Drawing.Point(12, 194);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(690, 150);
+            this.dataGridView2.Size = new System.Drawing.Size(604, 150);
             this.dataGridView2.TabIndex = 1;
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(316, 366);
+            this.btnBack.Location = new System.Drawing.Point(460, 350);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
             this.btnBack.TabIndex = 2;
@@ -72,7 +72,7 @@
             // 
             // btnAddToTIN
             // 
-            this.btnAddToTIN.Location = new System.Drawing.Point(421, 366);
+            this.btnAddToTIN.Location = new System.Drawing.Point(541, 350);
             this.btnAddToTIN.Name = "btnAddToTIN";
             this.btnAddToTIN.Size = new System.Drawing.Size(75, 23);
             this.btnAddToTIN.TabIndex = 3;
@@ -93,7 +93,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(726, 415);
+            this.ClientSize = new System.Drawing.Size(628, 384);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAddToTIN);
             this.Controls.Add(this.btnBack);

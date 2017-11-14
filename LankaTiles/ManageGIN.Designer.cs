@@ -45,7 +45,7 @@
             this.dataGridGIN.Location = new System.Drawing.Point(12, 74);
             this.dataGridGIN.Name = "dataGridGIN";
             this.dataGridGIN.ReadOnly = true;
-            this.dataGridGIN.Size = new System.Drawing.Size(851, 150);
+            this.dataGridGIN.Size = new System.Drawing.Size(665, 150);
             this.dataGridGIN.TabIndex = 0;
             this.dataGridGIN.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridGIN_CellClick);
             // 
@@ -54,7 +54,7 @@
             this.dataGridCusName.AllowUserToAddRows = false;
             this.dataGridCusName.AllowUserToDeleteRows = false;
             this.dataGridCusName.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridCusName.Location = new System.Drawing.Point(12, 275);
+            this.dataGridCusName.Location = new System.Drawing.Point(12, 230);
             this.dataGridCusName.Name = "dataGridCusName";
             this.dataGridCusName.ReadOnly = true;
             this.dataGridCusName.Size = new System.Drawing.Size(665, 150);
@@ -90,7 +90,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(875, 515);
+            this.ClientSize = new System.Drawing.Size(688, 395);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);

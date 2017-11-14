@@ -39,14 +39,14 @@
             // GINview
             // 
             this.GINview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GINview.Location = new System.Drawing.Point(31, 128);
+            this.GINview.Location = new System.Drawing.Point(12, 38);
             this.GINview.Name = "GINview";
-            this.GINview.Size = new System.Drawing.Size(695, 150);
+            this.GINview.Size = new System.Drawing.Size(542, 150);
             this.GINview.TabIndex = 0;
             // 
             // btnRemoveGIN
             // 
-            this.btnRemoveGIN.Location = new System.Drawing.Point(576, 373);
+            this.btnRemoveGIN.Location = new System.Drawing.Point(479, 194);
             this.btnRemoveGIN.Name = "btnRemoveGIN";
             this.btnRemoveGIN.Size = new System.Drawing.Size(75, 23);
             this.btnRemoveGIN.TabIndex = 1;
@@ -57,7 +57,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 49);
+            this.label1.Location = new System.Drawing.Point(28, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(112, 13);
             this.label1.TabIndex = 2;
@@ -65,14 +65,14 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(164, 49);
+            this.txtName.Location = new System.Drawing.Point(147, 9);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(236, 20);
             this.txtName.TabIndex = 3;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(406, 49);
+            this.btnSearch.Location = new System.Drawing.Point(389, 9);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 4;
@@ -84,7 +84,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(769, 492);
+            this.ClientSize = new System.Drawing.Size(563, 229);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
