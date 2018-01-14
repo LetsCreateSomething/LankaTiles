@@ -33,6 +33,7 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.btnAddToTIN = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnVerify = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -89,18 +90,29 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Pending Goods";
             // 
+            // btnVerify
+            // 
+            this.btnVerify.Location = new System.Drawing.Point(379, 350);
+            this.btnVerify.Name = "btnVerify";
+            this.btnVerify.Size = new System.Drawing.Size(75, 23);
+            this.btnVerify.TabIndex = 5;
+            this.btnVerify.Text = "Verify";
+            this.btnVerify.UseVisualStyleBackColor = true;
+            this.btnVerify.Click += new System.EventHandler(this.btnVerify_Click);
+            // 
             // AddTIN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(628, 384);
+            this.Controls.Add(this.btnVerify);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAddToTIN);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Name = "AddTIN";
-            this.Text = "AddTIN";
+            this.Text = "Add Transfer In Note";
             this.Load += new System.EventHandler(this.AddTIN_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -116,5 +128,6 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnAddToTIN;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnVerify;
     }
 }

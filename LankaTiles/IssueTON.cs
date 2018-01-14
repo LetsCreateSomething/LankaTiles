@@ -108,6 +108,11 @@ namespace LankaTiles
 
         }
 
+        private void lankaTiles2DataSet1BindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -115,6 +120,10 @@ namespace LankaTiles
 
         private void IssueTON_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'lankaTiles2DataSet2.item' table. You can move, or remove it, as needed.
+  //          this.itemTableAdapter.Fill(this.lankaTiles2DataSet2.item);
+            // TODO: This line of code loads data into the 'lankaTiles2DataSet2.Warehouses' table. You can move, or remove it, as needed.
+    //        this.warehousesTableAdapter.Fill(this.lankaTiles2DataSet2.Warehouses);
             TransferOutNote ton = new TransferOutNote();
             //Get Date
             txtDate.Text = DateTime.Now.ToString();

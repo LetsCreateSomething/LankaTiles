@@ -91,7 +91,7 @@
             this.Controls.Add(this.btnRemoveGIN);
             this.Controls.Add(this.GINview);
             this.Name = "RemoveGIN";
-            this.Text = "RemoveGIN";
+            this.Text = "Remove GIN";
             this.Load += new System.EventHandler(this.RemoveGIN_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GINview)).EndInit();
             this.ResumeLayout(false);

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
 
 namespace LankaTiles
 {
@@ -21,9 +22,19 @@ namespace LankaTiles
         private void StockReports_Load(object sender, EventArgs e)
         {            
             ReportDocument cryRpt = new ReportDocument();
-            cryRpt.Load("C:/Users/Sashika/source/repos/LankaTiles/LankaTiles/Reports/StockReport.rpt");
+            cryRpt.Load(Application.StartupPath + "\\Reports\\StockReport.rpt");
             crystalReportViewer1.ReportSource = cryRpt;
-            crystalReportViewer1.Refresh();          
+            ParameterFields paramFields = new ParameterFields();
+            ParameterField paraCompAddresss1 = new ParameterField();
+            ParameterDiscreteValue decCompAddresss1 = new ParameterDiscreteValue();
+            decCompAddresss1.Value = Form1.pass;
+            paraCompAddresss1.Name = "userID";
+            paraCompAddresss1.CurrentValues.Add(decCompAddresss1);
+            paramFields.Add(paraCompAddresss1);
+            crystalReportViewer1.ParameterFieldInfo = paramFields;
+
+            crystalReportViewer1.Show();
+               
         }
     }
 }

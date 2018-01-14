@@ -19,8 +19,10 @@ namespace LankaTiles
         }      
         private void AddGIN_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'lankaTiles2DataSet1.invoice' table. You can move, or remove it, as needed.
+  //          this.invoiceTableAdapter1.Fill(this.lankaTiles2DataSet1.invoice);
             // TODO: This line of code loads data into the 'lankaTiles2DataSet.invoice' table. You can move, or remove it, as needed.
-            this.invoiceTableAdapter.Fill(this.lankaTiles2DataSet.invoice);
+           // this.invoiceTableAdapter.Fill(this.lankaTiles2DataSet.invoice);
             Invoice invoice = new Invoice();
             GoodIssueNote gin = new GoodIssueNote();
             dt = invoice.getInvoiceforGIN();          
@@ -39,7 +41,25 @@ namespace LankaTiles
             cmbInvoice.ValueMember = "invID";
             gin.dropTemp();
         }
-        
+
+        private void btnVerify_Click(object sender, EventArgs e)
+        {
+             int selectedItemId;
+            if (dataGridView2.CurrentRow != null)
+            {
+                selectedItemId = Convert.ToInt32(dataGridView2.CurrentRow.Cells[1].Value);
+                // int selectedItemQty = Convert.ToInt32(dataGridView2.CurrentRow.Cells[2].Value);
+
+                // MessageBox.Show(selectedItemId.ToString());
+                Item item = new Item();
+                string rfid;
+                rfid = item.getItemRfid(selectedItemId);
+                RFID Rfid = new RFID();
+                bool mark;
+                mark = Rfid.verify(rfid);
+            }
+        }
+
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex==3)

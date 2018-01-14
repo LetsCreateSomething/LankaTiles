@@ -97,7 +97,7 @@
             this.Controls.Add(this.dataGridCusName);
             this.Controls.Add(this.dataGridGIN);
             this.Name = "ManageGIN";
-            this.Text = "ManageGIN";
+            this.Text = "Manage GIN";
             this.Load += new System.EventHandler(this.ManageGIN_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridGIN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCusName)).EndInit();

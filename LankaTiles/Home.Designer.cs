@@ -565,7 +565,7 @@
             this.MaximizeBox = false;
             this.Name = "Home";
             this.ShowIcon = false;
-            this.Text = "Lanka Tiles PLC - ";
+            this.Text = "- Lanka Tiles PLC - ";
             this.Load += new System.EventHandler(this.Home_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

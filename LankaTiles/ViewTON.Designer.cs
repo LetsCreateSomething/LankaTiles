@@ -66,7 +66,7 @@
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ViewTON";
-            this.Text = "ViewTON";
+            this.Text = "View TON";
             this.Load += new System.EventHandler(this.ViewTON_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

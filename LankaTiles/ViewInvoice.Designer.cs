@@ -65,7 +65,7 @@
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ViewInvoice";
-            this.Text = "ViewInvoice";
+            this.Text = "View Invoice";
             this.Load += new System.EventHandler(this.ViewInvoice_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

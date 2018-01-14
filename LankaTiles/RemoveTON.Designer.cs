@@ -94,7 +94,7 @@
             this.Controls.Add(this.btnRemoveTON);
             this.Controls.Add(this.TONview);
             this.Name = "RemoveTON";
-            this.Text = "RemoveTON";
+            this.Text = "Remove TON";
             this.Load += new System.EventHandler(this.RemoveTON_Load);
             ((System.ComponentModel.ISupportInitialize)(this.TONview)).EndInit();
             this.ResumeLayout(false);

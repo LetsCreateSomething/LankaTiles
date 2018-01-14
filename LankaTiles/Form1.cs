@@ -47,7 +47,7 @@ namespace LankaTiles
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show("Please contact company IT Manager for creating new accuonts!");
+            MessageBox.Show("Please contact company IT Manager for creating new accounts!");
         }
 
         private void btnExit_Click(object sender, EventArgs e)

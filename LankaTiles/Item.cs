@@ -78,5 +78,13 @@ namespace LankaTiles
                 db.inserUpdateDelete("update item set qty = qty+" + dt.Rows[i][1].ToString() + " where itemID = " + dt.Rows[i][0].ToString() + "");
             }
         }
+
+        public string getItemRfid(int id)
+        {
+            Database db = new Database();
+            string val;
+            val = db.getValue("select RFID from item where itemID = " + id + "");
+            return val;
+        }
     }
 }

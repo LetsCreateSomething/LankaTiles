@@ -241,7 +241,7 @@ namespace LankaTiles
         private void report1_Click(object sender, EventArgs e)
         {
             StockReports frmStockReports = new StockReports();
-            frmStockReports.ShowDialog();
+            frmStockReports.ShowDialog();            
         }
 
         private void report2_Click(object sender, EventArgs e)

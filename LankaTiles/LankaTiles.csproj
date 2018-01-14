@@ -102,6 +102,7 @@
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
@@ -176,6 +177,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LankaTiles2DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="LankaTiles2DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LankaTiles2DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LankaTiles2DataSet2.cs">
+      <DependentUpon>LankaTiles2DataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LankaTiles2DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LankaTiles2DataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ManageGIN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,30 +214,6 @@
       <DependentUpon>RemoveTON.cs</DependentUpon>
     </Compile>
     <Compile Include="Report.cs" />
-    <Compile Include="Reports\GINReport.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GINReport.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\GRNReport.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GRNReport.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\StockReport.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StockReport.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\UncollectedItemsReport.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UncollectedItemsReport.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="ReturnNote.cs" />
     <Compile Include="RFID.cs" />
     <Compile Include="StockBalance.cs">
@@ -237,12 +227,6 @@
     </Compile>
     <Compile Include="StockReports.Designer.cs">
       <DependentUpon>StockReports.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\TINReport.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TINReport.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="TINReport.cs">
       <SubType>Form</SubType>
@@ -322,28 +306,8 @@
     <EmbeddedResource Include="RemoveTON.resx">
       <DependentUpon>RemoveTON.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\GINReport.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>GINReport.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\GRNReport.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>GRNReport.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\StockReport.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>StockReport.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\UncollectedItemsReport.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>UncollectedItemsReport.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="StockReports.resx">
       <DependentUpon>StockReports.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\TINReport.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>TINReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="TINReport.resx">
       <DependentUpon>TINReport.cs</DependentUpon>
@@ -373,6 +337,28 @@
     </None>
     <None Include="LankaTiles2DataSet.xss">
       <DependentUpon>LankaTiles2DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LankaTiles2DataSet1.xsc">
+      <DependentUpon>LankaTiles2DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="LankaTiles2DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LankaTiles2DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LankaTiles2DataSet1.xss">
+      <DependentUpon>LankaTiles2DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="LankaTiles2DataSet2.xsc">
+      <DependentUpon>LankaTiles2DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="LankaTiles2DataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LankaTiles2DataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LankaTiles2DataSet2.xss">
+      <DependentUpon>LankaTiles2DataSet2.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

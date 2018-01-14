@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace LankaTiles
 {
@@ -15,14 +16,14 @@ namespace LankaTiles
         private SqlCommand cmd;
         private SqlDataAdapter da;
         private DataTable dt;
-
+        private string strConn = ConfigurationManager.ConnectionStrings["connstring"].ConnectionString;
 
         public Database()
         {
             try
             {
-                con = new SqlConnection("Data Source=DESKTOP-PLMQAVR\\SQLEXPRESS;Initial Catalog=LankaTiles2;Integrated Security=True");
-
+                //  con = new SqlConnection("Data Source=DESKTOP-PLMQAVR\\SQLEXPRESS;Initial Catalog=LankaTiles2;Integrated Security=True");
+                con = new SqlConnection(strConn);
             }
             catch (Exception)
             {
@@ -54,7 +55,8 @@ namespace LankaTiles
 
         public void inserUpdateDelete(String query)
         {
-            con.ConnectionString = "Data Source=DESKTOP-PLMQAVR\\SQLEXPRESS;Initial Catalog=LankaTiles2;Integrated Security=True";
+            // con.ConnectionString = "Data Source=DESKTOP-PLMQAVR\\SQLEXPRESS;Initial Catalog=LankaTiles2;Integrated Security=True";
+            con.ConnectionString = strConn;
             con.Open();
             cmd = new SqlCommand(query, con);
             cmd.ExecuteNonQuery();

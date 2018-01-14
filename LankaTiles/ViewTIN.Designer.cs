@@ -66,7 +66,7 @@
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ViewTIN";
-            this.Text = "ViewTIN";
+            this.Text = "View TIN";
             this.Load += new System.EventHandler(this.ViewTIN_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

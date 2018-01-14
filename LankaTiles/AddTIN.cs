@@ -65,6 +65,17 @@ namespace LankaTiles
            
         }
 
+        private void btnVerify_Click(object sender, EventArgs e)
+        {
+            int selectedItemID = Convert.ToInt32(dataGridView2.CurrentRow.Cells[1].Value);
+            Item item = new Item();
+            string rfid;
+            rfid = item.getItemRfid(selectedItemID);
+            RFID Rfid = new RFID();
+            bool mark;
+            mark = Rfid.verify(rfid);
+        }
+
         private void AddTIN_Load(object sender, EventArgs e)
         {
             TransferInNote tin = new TransferInNote();            

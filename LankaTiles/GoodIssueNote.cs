@@ -42,11 +42,21 @@ namespace LankaTiles
             string query = "insert into GIN values (" + GINID + ",'" + date + "','" + customer + "')";
             db.inserUpdateDelete(query);
             addGINDetails();
+
+            
         }
         public void addGINDetails()
         {
             db = new Database();
+            dt = new DataTable();
+            string query;
+            dt = db.select("select itemID, qty from GINTemp");
             db.inserUpdateDelete("insert into GINDetails select GINID, itemID, qty, invID from GINTemp");
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                query = "update item set qty = qty - " + dt.Rows[i]["qty"] + " where itemID = " + dt.Rows[i]["itemID"] + "";
+                db.inserUpdateDelete(query);
+            }             
         }
 
         public void addGINTemp(string GINID, int itemID, int qty, int invID)
