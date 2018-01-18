@@ -14,6 +14,8 @@ namespace LankaTiles
     public partial class IssueTON : Form
     {
         DataTable dt, dt1, dt2;
+        TransferOutNote ton;
+        Database db,db1;
 
         public IssueTON()
         {
@@ -23,15 +25,15 @@ namespace LankaTiles
         private void btnClear_Click(object sender, EventArgs e)
         {
             cmbItemCode.Text = "";
-            cmbItemName.Text = "";
+            txtItemName.Text = "";
             txtQty.Clear();
             txtUnitPrice.Clear();
         }
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
-            Database db = new Database();
-            if (string.IsNullOrEmpty(cmbItemCode.Text) || string.IsNullOrEmpty(cmbItemName.Text) || string.IsNullOrEmpty(txtQty.Text) || string.IsNullOrEmpty(txtUnitPrice.Text))
+            db = new Database();
+            if (string.IsNullOrEmpty(cmbItemCode.Text) || string.IsNullOrEmpty(txtQty.Text) || string.IsNullOrEmpty(txtUnitPrice.Text))
             {
                 MessageBox.Show("Empty Fields!");
             }
@@ -41,33 +43,41 @@ namespace LankaTiles
             }
             else
             {
-                dt = db.select("select * from tonTemp");
-                int mark = 0;
-                foreach (DataRow row in dt.Rows)
+                dt = db.select("select qty from item where itemID = " + cmbItemCode.SelectedValue + "");
+                if (Convert.ToInt32(dt.Rows[0][0].ToString()) < Convert.ToInt32(txtQty.Text))
                 {
-                    if (row.Field<int>(1)==Convert.ToInt32(cmbItemCode.Text))
-                    {
-                        mark = 1;
-                        break;
-                    }
-                }
-
-                if (mark==1)
-                {
-                    string updateQuery = "update tonTemp set qty = qty+" + txtQty.Text + " where itemID = " + cmbItemCode.Text + "";
-                    //MessageBox.Show(updateQuery);
-                    db.inserUpdateDelete(updateQuery);
+                    MessageBox.Show("Not enough quantity in stock!! \nOnly " + dt.Rows[0][0].ToString() + " pcs available.");
                 }
                 else
                 {
-                    string queryTemp = " insert into tonTemp values (" + txtTONNo.Text + " ," + cmbItemCode.Text + ",'" + cmbItemName.Text + "'," + txtQty.Text + "," + txtUnitPrice.Text + ")";
-                    //MessageBox.Show(queryTemp);
-                    db.inserUpdateDelete(queryTemp);
+                    dt = db.select("select * from tonTemp");
+                    int mark = 0;
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        if (row.Field<int>(1) == Convert.ToInt32(cmbItemCode.SelectedValue))
+                        {
+                            mark = 1;
+                            break;
+                        }
+                    }
+
+                    if (mark == 1)
+                    {
+                        string updateQuery = "update tonTemp set qty = qty+" + txtQty.Text + " where itemID = " + cmbItemCode.SelectedValue + "";
+                        //MessageBox.Show(updateQuery);
+                        db.inserUpdateDelete(updateQuery);
+                    }
+                    else
+                    {
+                        string queryTemp = " insert into tonTemp values (" + txtTONNo.Text + " ," + cmbItemCode.SelectedValue + ",'" + txtItemName.Text + "'," + txtQty.Text + "," + txtUnitPrice.Text + ")";
+                        //MessageBox.Show(queryTemp);
+                        db.inserUpdateDelete(queryTemp);
+                    }
+                    dt = new DataTable();
+                    dt = db.select("select TONID as ID, itemId as [Item ID], itemName as [Item Name], qty as Quantity, unitPrice as [Unit Price] from tonTemp");
+                    dataGridView1.DataSource = dt;
+                    btnDelete.Enabled = true;
                 }
-                dt = new DataTable();
-                dt = db.select("select * from tonTemp");
-                dataGridView1.DataSource = dt;
-                btnDelete.Enabled = true;
             }
         }
 
@@ -77,7 +87,7 @@ namespace LankaTiles
             DialogResult dr = MessageBox.Show("Are you sure want to delete?", "Warning!", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-                Database db = new Database();
+                db = new Database();
                 db.inserUpdateDelete("delete from tonTemp where itemID = " + selectedTONId + "");
                 dt = new DataTable();
                 dt = db.select("select * from tonTemp");
@@ -87,31 +97,23 @@ namespace LankaTiles
 
         private void cmbItemCode_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Database db = new Database();
-            string code = db.getValue("select itemName from item where itemCode = '" + cmbItemCode.SelectedText + "'");
-            cmbItemName.Text = code;
+            db = new Database();
+            dt = new DataTable();
+            dt  = db.select("select itemName,unitprice from item where itemID = '" + cmbItemCode.SelectedValue + "'");
+            txtItemName.Text = dt.Rows[0][0].ToString();
+            txtUnitPrice.Text = dt.Rows[0][1].ToString();            
         }
 
         private void btnIssue_Click(object sender, EventArgs e)
         {
-            TransferOutNote ton = new TransferOutNote();
+            ton = new TransferOutNote();
             ton.FromLocation = txtFromLocation.Text;
             ton.Destination = cmbDestination.Text;
             ton.Id = Convert.ToInt32(txtTONNo.Text);
             ton.addTON();           
             MessageBox.Show("TON added successfully!");
             this.Close();
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lankaTiles2DataSet1BindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
+        }                      
 
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -120,14 +122,11 @@ namespace LankaTiles
 
         private void IssueTON_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'lankaTiles2DataSet2.item' table. You can move, or remove it, as needed.
-  //          this.itemTableAdapter.Fill(this.lankaTiles2DataSet2.item);
-            // TODO: This line of code loads data into the 'lankaTiles2DataSet2.Warehouses' table. You can move, or remove it, as needed.
-    //        this.warehousesTableAdapter.Fill(this.lankaTiles2DataSet2.Warehouses);
-            TransferOutNote ton = new TransferOutNote();
+            ton = new TransferOutNote();
+
             //Get Date
             txtDate.Text = DateTime.Now.ToString();
-            Database db = new Database();
+            db = new Database();
             db.inserUpdateDelete("delete from tonTemp");
             //Get TON ID
             string id;
@@ -140,16 +139,17 @@ namespace LankaTiles
             {
                 txtTONNo.Text = (Convert.ToInt32(id) + 1).ToString();
             }            
-            Database db1 = new Database();
+            db1 = new Database();
             //Fill Combo 
             Item item = new Item();
-            dt1 = item.getItemDetails();            
-            cmbItemCode.DataSource = dt1;
+            dt1 = item.getItemDetails();                       
+            
             cmbItemCode.ValueMember = "itemID";
-            cmbItemName.DataSource = dt1;
-            cmbItemName.ValueMember = "itemName";
+            cmbItemCode.DisplayMember = "itemCode";
+            cmbItemCode.DataSource = dt1;
 
             dt2 = db1.select("select * from warehouses");
+
             cmbDestination.DataSource = dt2;
             cmbDestination.ValueMember = "location";
         }

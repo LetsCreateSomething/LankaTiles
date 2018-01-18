@@ -11,10 +11,10 @@ namespace LankaTiles
 {
     class GoodIssueNote
     {
-        public DataTable dt;
-        public Database db;
+        DataTable dt;
+        Database db;
 
-        private string GINID;
+        string GINID;
         public string ginID
         {
             get { return GINID; }
@@ -62,14 +62,25 @@ namespace LankaTiles
         public void addGINTemp(string GINID, int itemID, int qty, int invID)
         {
             db = new Database();
-            db.inserUpdateDelete("insert into GINTemp values (" + GINID + "," + itemID + "," + qty + "," + invID + ")");
+            dt = db.select("select * from GINTemp where itemId = " + itemID + "");
+            if (dt.Rows.Count==0)            
+                db.inserUpdateDelete("insert into GINTemp values (" + GINID + "," + itemID + "," + qty + "," + invID + ")");
+
         }
 
+        public void updateGINTemp(int id)
+        {
+            db = new Database();
+            db.inserUpdateDelete("delete from GINTemp where itemID = " + id + " ");
+        }
         public DataTable getGINTemp()
         {
-            Database db = new Database();
-            DataTable dt = new DataTable();
-            dt = db.select("select * from GINTemp");
+            db = new Database();
+            dt = new DataTable();
+            dt = db.select("SELECT GINTemp.GINID AS ID, item.itemName AS [Item Name],"+
+                " GINTemp.qty AS Quantity, GINTemp.invID AS [Invoice ID], invoice.cusName AS "+
+                "[Customer Name] FROM GINTemp INNER JOIN item ON GINTemp.itemID = item.itemID "+
+                "INNER JOIN invoice ON GINTemp.invID = invoice.invID");
             return dt;
         }
 
@@ -89,7 +100,7 @@ namespace LankaTiles
        
         public DataTable searchGIN(string search)
         {
-            string query = "select * from GIN where cusName LIKE '%" + search + "%'";
+            string query = "select GINID AS ID, [date] AS [Date], cusName AS [Customer Name] from GIN where cusName LIKE '%" + search + "%'";
             db = new Database();
             dt = db.select(query);    
             return dt;            
@@ -97,7 +108,7 @@ namespace LankaTiles
 
         public DataTable getGIN()
         {
-            string query = "select * from GIN";
+            string query = "SELECT GINID AS ID, [date] AS [Date], cusName AS [Customer Name] FROM GIN";
             db = new Database();
             dt = db.select(query);
             return dt;
@@ -105,7 +116,10 @@ namespace LankaTiles
 
         public DataTable viewReleventGin(int GINid)
         {
-            string query = "select * from GINDetails where GINID = "+GINid+"";
+            string query = "SELECT GINDetails.GINID AS ID, item.itemName AS [Item Name], "+
+                "GINDetails.qty AS Quantity, invoice.cusName AS [Customer Name] "+
+                "FROM GINDetails INNER JOIN item ON GINDetails.itemID = item.itemID "+
+                "INNER JOIN invoice ON GINDetails.invID = invoice.invID WHERE(GINDetails.GINID = " + GINid + ")";
             dt = new DataTable();
             db = new Database();
             dt = db.select(query);            

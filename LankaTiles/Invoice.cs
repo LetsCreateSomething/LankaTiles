@@ -9,19 +9,16 @@ namespace LankaTiles
 {
     class Invoice
     {
-        private int invoiceID;
-        private int date;
-        private string itemType;
-        private int qty;
-
+        Database db;
+        DataTable dt;
         public int updateInvoice(int invID, int itemID, int flag)
         {
             int mark = 1;
             if (flag == 1)
             {
-                Database db = new Database();
+                db = new Database();
                 db.inserUpdateDelete("update invoiceDetails set IsIssued = 1 where invId =" + invID + " and itemID = " + itemID + "  ");
-                DataTable dt = new DataTable();
+                dt = new DataTable();
                 dt = db.select("select IsIssued from invoiceDetails where invID = " + invID + " ");
                
                 foreach (DataRow row in dt.Rows)
@@ -39,7 +36,7 @@ namespace LankaTiles
             }
             else
             {
-                Database db = new Database();
+                db = new Database();
                 db.inserUpdateDelete("update invoiceDetails set IsIssued = 0 where invId =" + invID + " and itemID = " + itemID + "  ");
             }
             return mark;
@@ -48,30 +45,38 @@ namespace LankaTiles
         public string getCustomerName(string id)
         {
             string name;
-            Database db = new Database();
+            db = new Database();
             name = db.getValue("select cusName from invoice where invID = " + id + "");
             return name;
         }
         public DataTable getInvoice()
         {
-            Database db = new Database();
-            DataTable dt = new DataTable();
-            dt = db.select("select * from invoice");
+            db = new Database();
+            dt = new DataTable();
+            dt = db.select("SELECT invID AS ID, [date] AS [Date], cusName AS [Customer Name], IsIssued AS [Issue Status] FROM invoice");
             return dt;
         }
         public DataTable getInvoiceforGIN()
         {
-            Database db = new Database();
-            DataTable dt = new DataTable();
+            db = new Database();
+            dt = new DataTable();
             dt = db.select("select * from invoice where IsIssued = 0");
             return dt;
         }
         public DataTable getInvoice(int id)
         {
-            Database db = new Database();
-            DataTable dt = new DataTable();
-            dt = db.select("select * from invoiceDetails where invID = " + id + "");
+            db = new Database();
+            dt = new DataTable();
+            dt = db.select("SELECT invoiceDetails.invID AS [Invoice ID], item.itemCode AS [Item Code], item.itemName AS [Item Name], invoiceDetails.qty AS Quantity, invoiceDetails.IsIssued AS [Issue Status],invoiceDetails.itemID  FROM invoiceDetails INNER JOIN item ON invoiceDetails.itemID = item.itemID WHERE(invoiceDetails.invID = " + id + ")");
+            return dt;
+        }
+        public DataTable search(string search)
+        {
+            db = new Database();
+            dt = new DataTable();
+            dt = db.select("SELECT invID AS ID, [date] AS [Date], cusName AS [Customer Name], IsIssued AS [Issue Status] FROM invoice WHERE cusName LIKE '%" + search + "%'");
             return dt;
         }
     }
 }
+

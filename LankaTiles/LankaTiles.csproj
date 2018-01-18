@@ -172,24 +172,6 @@
       <DependentUpon>IssueTON.cs</DependentUpon>
     </Compile>
     <Compile Include="Item.cs" />
-    <Compile Include="LankaTiles2DataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LankaTiles2DataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="LankaTiles2DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LankaTiles2DataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="LankaTiles2DataSet2.cs">
-      <DependentUpon>LankaTiles2DataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="LankaTiles2DataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LankaTiles2DataSet2.xsd</DependentUpon>
-    </Compile>
     <Compile Include="ManageGIN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -327,39 +309,6 @@
     <EmbeddedResource Include="ViewTON.resx">
       <DependentUpon>ViewTON.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="LankaTiles2DataSet.xsc">
-      <DependentUpon>LankaTiles2DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="LankaTiles2DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LankaTiles2DataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="LankaTiles2DataSet.xss">
-      <DependentUpon>LankaTiles2DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="LankaTiles2DataSet1.xsc">
-      <DependentUpon>LankaTiles2DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="LankaTiles2DataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LankaTiles2DataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="LankaTiles2DataSet1.xss">
-      <DependentUpon>LankaTiles2DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="LankaTiles2DataSet2.xsc">
-      <DependentUpon>LankaTiles2DataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="LankaTiles2DataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LankaTiles2DataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="LankaTiles2DataSet2.xss">
-      <DependentUpon>LankaTiles2DataSet2.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

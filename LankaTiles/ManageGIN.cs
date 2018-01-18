@@ -13,6 +13,7 @@ namespace LankaTiles
     public partial class ManageGIN : Form
     {
         DataTable dt, dt1;
+        GoodIssueNote gin;
         public ManageGIN()
         {
             InitializeComponent();
@@ -20,40 +21,37 @@ namespace LankaTiles
 
         private void ManageGIN_Load(object sender, EventArgs e)
         {
-            GoodIssueNote gin = new GoodIssueNote();
+            gin = new GoodIssueNote();
             dt = new DataTable();
             dt = gin.getGIN();
             dataGridGIN.DataSource = dt;
-        }
+            dataGridGIN.Columns[2].Width = 200;
+        }      
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void txtName_TextChanged(object sender, EventArgs e)
         {
-            var gin = new GoodIssueNote();
+            gin = new GoodIssueNote();
             dt = new DataTable();
             dt = gin.searchGIN(txtName.Text);
-            if (dt.Rows.Count == 0)
-            {
-                MessageBox.Show("No data found!");
-            }
-            else
-            {
-                dataGridGIN.DataSource = dt;
-            }
+            dataGridGIN.DataSource = dt;
+            dataGridGIN.Columns[2].Width = 200;
         }
 
         private void dataGridGIN_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var gin = new GoodIssueNote();
-            int selectedGinId = Convert.ToInt32(dataGridGIN.CurrentRow.Cells[0].Value);
-            dt1 = new DataTable();
-            dt1 = gin.viewReleventGin(selectedGinId);
-            if (dt.Rows.Count == 0)
+            gin = new GoodIssueNote();
+            if (dataGridGIN.CurrentRow != null)
             {
-                MessageBox.Show("No GIN Found!");
-            }
-            else
-            {
-                dataGridCusName.DataSource = dt1;
+                int selectedGinId = Convert.ToInt32(dataGridGIN.CurrentRow.Cells[0].Value);
+                dt1 = new DataTable();
+                dt1 = gin.viewReleventGin(selectedGinId);
+                if (dt.Rows.Count == 0)
+                    MessageBox.Show("No GIN Found!");
+                else
+                {
+                    dataGridCusName.DataSource = dt1;
+                    dataGridCusName.Columns[3].Width = 200;
+                }                
             }
         }
     }

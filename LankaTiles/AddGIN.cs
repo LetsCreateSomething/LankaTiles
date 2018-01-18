@@ -13,48 +13,48 @@ namespace LankaTiles
     public partial class AddGIN : Form
     {
         public DataTable dt,dt1,dt2,dt3;
+        Invoice invoice;
+        GoodIssueNote gin;
+        Item item;
+        RFID Rfid;
+        string rfid;
+        string GINID;
+        bool isChecked;
         public AddGIN()
         {
             InitializeComponent();
         }      
         private void AddGIN_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'lankaTiles2DataSet1.invoice' table. You can move, or remove it, as needed.
-  //          this.invoiceTableAdapter1.Fill(this.lankaTiles2DataSet1.invoice);
-            // TODO: This line of code loads data into the 'lankaTiles2DataSet.invoice' table. You can move, or remove it, as needed.
-           // this.invoiceTableAdapter.Fill(this.lankaTiles2DataSet.invoice);
-            Invoice invoice = new Invoice();
-            GoodIssueNote gin = new GoodIssueNote();
+        {           
+            invoice = new Invoice();
+            gin = new GoodIssueNote();
             dt = invoice.getInvoiceforGIN();          
-            string GINID = gin.getMaxGINID();
-            if (string.IsNullOrEmpty(GINID))
-            {
-                txtGINID.Text = "1";
-            }
-            else
-            {
-                txtGINID.Text =(Convert.ToInt16(GINID)+1).ToString();
-            }           
-            lblDate.Text = DateTime.Now.ToShortDateString();
-            lblTime.Text = DateTime.Now.ToShortTimeString();
-            cmbInvoice.DataSource = dt;
+            GINID = gin.getMaxGINID();
+
+            if (string.IsNullOrEmpty(GINID))            
+                txtGINID.Text = "1";            
+            else            
+                txtGINID.Text =(Convert.ToInt16(GINID)+1).ToString();                    
+
+            txtDate.Text = DateTime.Now.ToShortDateString();           
+                        
             cmbInvoice.ValueMember = "invID";
+            cmbInvoice.DisplayMember = "InvID";
+            cmbInvoice.DataSource = dt;
+
             gin.dropTemp();
+
         }
 
         private void btnVerify_Click(object sender, EventArgs e)
         {
-             int selectedItemId;
+            int selectedItemId;
             if (dataGridView2.CurrentRow != null)
             {
                 selectedItemId = Convert.ToInt32(dataGridView2.CurrentRow.Cells[1].Value);
-                // int selectedItemQty = Convert.ToInt32(dataGridView2.CurrentRow.Cells[2].Value);
-
-                // MessageBox.Show(selectedItemId.ToString());
-                Item item = new Item();
-                string rfid;
+                item = new Item();                
                 rfid = item.getItemRfid(selectedItemId);
-                RFID Rfid = new RFID();
+                Rfid = new RFID();
                 bool mark;
                 mark = Rfid.verify(rfid);
             }
@@ -62,53 +62,53 @@ namespace LankaTiles
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex==3)
+            if (dataGridView2.CurrentRow != null)
             {
-                Invoice invoice = new Invoice();
-                try
+
+
+                if (e.ColumnIndex == 4)
                 {
+                    invoice = new Invoice();
                     int selectedInvId = Convert.ToInt32(dataGridView2.CurrentRow.Cells[0].Value);
-                    int selectedItemID = Convert.ToInt32(dataGridView2.CurrentRow.Cells[1].Value);
-                    int selectedQty = Convert.ToInt32(dataGridView2.CurrentRow.Cells[2].Value);
-                    bool isChecked = (bool)dataGridView2.CurrentRow.Cells[3].Value;
-                    if (isChecked==false)
+                    int selectedItemID = Convert.ToInt32(dataGridView2.CurrentRow.Cells[5].Value);
+                    int selectedQty = Convert.ToInt32(dataGridView2.CurrentRow.Cells[3].Value);
+                    isChecked = (bool)dataGridView2.CurrentRow.Cells[4].Value;
+
+                    if (isChecked == false)
                     {
-                        if (selectedInvId != null && selectedItemID != null)
-                        {
-                            invoice.updateInvoice(selectedInvId, selectedItemID,1);                         
-                            GoodIssueNote gin = new GoodIssueNote();
-                            gin.addGINTemp(txtGINID.Text,selectedItemID,selectedQty,selectedInvId);
-                            dt3 = gin.getGINTemp();
-                            dataGridView3.DataSource = dt3;
-                        }
+                        invoice.updateInvoice(selectedInvId, selectedItemID, 1);
+                        gin = new GoodIssueNote();
+                        gin.addGINTemp(txtGINID.Text, selectedItemID, selectedQty, selectedInvId);
+                        dt3 = gin.getGINTemp();
+                        dataGridView3.DataSource = dt3;
                     }
                     else
                     {
-                        if (selectedInvId != null && selectedItemID != null)
-                        {
-                            invoice.updateInvoice(selectedInvId, selectedItemID, 0);                           
-                            MessageBox.Show("updated as not Issued!");
-                        }
-                    }                    
-                }
-                catch (Exception)
-                {
+                        invoice.updateInvoice(selectedInvId, selectedItemID, 0);
+                        gin = new GoodIssueNote();
+                        gin.updateGINTemp(selectedItemID);
+                        dt3 = gin.getGINTemp();
+                        MessageBox.Show("updated as not Issued!");
+                        dataGridView3.DataSource = dt3;
+                    }                   
                 }
             }
         }
 
         private void cmbInvoice_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Invoice invoice = new Invoice();
+            invoice = new Invoice();
             string id = cmbInvoice.Text;
             dt = invoice.getInvoice(Convert.ToInt16(id));
             dataGridView2.DataSource = dt;
+            dataGridView2.Columns[5].Visible = false;
+
             txtCustomer.Text = invoice.getCustomerName(id);
         }
 
         private void btnGenerateGIN_Click(object sender, EventArgs e)
         {
-            GoodIssueNote gin = new GoodIssueNote();
+            gin = new GoodIssueNote();
             dt = gin.getGINTemp();
             if (dt.Rows.Count > 0)
             {
@@ -122,8 +122,7 @@ namespace LankaTiles
             else
             {
                 MessageBox.Show("No items selected!");
-            }
-            
+            }            
         }
     }
 }

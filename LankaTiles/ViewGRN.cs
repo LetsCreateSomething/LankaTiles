@@ -12,7 +12,12 @@ namespace LankaTiles
 {
     public partial class ViewGRN : Form
     {
-        public DataTable dt;
+        DataTable dt;
+        GoodRecieveNote grn;
+        Item item;
+        RFID Rfid;
+        string rfid;
+        int selectedGRNID;
         public ViewGRN()
         {
             InitializeComponent();
@@ -20,43 +25,45 @@ namespace LankaTiles
 
         private void ViewGRN_Load(object sender, EventArgs e)
         {
-            GoodRecieveNote grn = new GoodRecieveNote();
+            grn = new GoodRecieveNote();
             dt = grn.getGRN();
             dataGridView1.DataSource = dt;
+            dataGridView1.Columns[3].Width = 200;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-                int selectedGRNID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-                if (selectedGRNID != null)
+            if (dataGridView1.CurrentRow != null)
+            {
+                selectedGRNID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+
+                grn = new GoodRecieveNote();
+                dt = grn.getGRN(selectedGRNID);
+
+                dataGridView2.DataSource = dt;
+                dataGridView2.Columns[3].Visible = false;
+
+                if (e.ColumnIndex == 4)
                 {
-                    GoodRecieveNote grn = new GoodRecieveNote();
-                    dt = grn.getGRN(selectedGRNID);
-
-                    dataGridView2.DataSource = dt;
-                    dataGridView2.Columns[3].Visible = false;
-                }
-                if (e.ColumnIndex == 3)
-                {               
                     int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-                    GoodRecieveNote grn = new GoodRecieveNote();
-                    grn.updateGRN(id);
-                    Item item = new Item();
-                    item.updateStock(id.ToString());
-                    MessageBox.Show("Item Added!");
+                    grn = new GoodRecieveNote();
+                    int flag = grn.updateGRN(id);
+                    if (flag==1)
+                    {
+                        item = new Item();
+                        item.updateStock(id.ToString());
+                        MessageBox.Show("Item Added!");
+                    }                               
                 }
-           
-           
-
+            }
         }
 
         private void btnVerify_Click(object sender, EventArgs e)
         {
             int selectedItemId = Convert.ToInt32(dataGridView2.CurrentRow.Cells[1].Value);
-            Item item = new Item();
-            string rfid;
+            item = new Item();            
             rfid = item.getItemRfid(selectedItemId);
-            RFID Rfid = new RFID();
+            Rfid = new RFID();
             bool mark;
             mark = Rfid.verify(rfid);
         }

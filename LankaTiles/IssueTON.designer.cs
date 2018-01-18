@@ -28,46 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IssueTON));
             this.label1 = new System.Windows.Forms.Label();
             this.txtTONNo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtFromLocation = new System.Windows.Forms.TextBox();
             this.cmbDestination = new System.Windows.Forms.ComboBox();
-            this.warehousesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lankaTiles2DataSet2 = new LankaTiles.LankaTiles2DataSet2();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDate = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtItemName = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAddItem = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.txtUnitPrice = new System.Windows.Forms.TextBox();
             this.txtQty = new System.Windows.Forms.TextBox();
-            this.cmbItemName = new System.Windows.Forms.ComboBox();
-            this.itemBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.cmbItemCode = new System.Windows.Forms.ComboBox();
-            this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnIssue = new System.Windows.Forms.Button();
-            this.lankaTiles2DataSet1 = new LankaTiles.LankaTiles2DataSet1();
-            this.lankaTiles2DataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.warehousesTableAdapter = new LankaTiles.LankaTiles2DataSet2TableAdapters.WarehousesTableAdapter();
-            this.itemTableAdapter = new LankaTiles.LankaTiles2DataSet2TableAdapters.itemTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.warehousesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lankaTiles2DataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lankaTiles2DataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lankaTiles2DataSet1BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -116,7 +102,6 @@
             // 
             // cmbDestination
             // 
-            this.cmbDestination.DataSource = this.warehousesBindingSource;
             this.cmbDestination.DisplayMember = "location";
             this.cmbDestination.FormattingEnabled = true;
             this.cmbDestination.Location = new System.Drawing.Point(78, 80);
@@ -124,16 +109,6 @@
             this.cmbDestination.Size = new System.Drawing.Size(191, 21);
             this.cmbDestination.TabIndex = 5;
             this.cmbDestination.ValueMember = "location";
-            // 
-            // warehousesBindingSource
-            // 
-            this.warehousesBindingSource.DataMember = "Warehouses";
-            this.warehousesBindingSource.DataSource = this.lankaTiles2DataSet2;
-            // 
-            // lankaTiles2DataSet2
-            // 
-            this.lankaTiles2DataSet2.DataSetName = "LankaTiles2DataSet2";
-            this.lankaTiles2DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label4
             // 
@@ -155,21 +130,25 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 263);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(592, 150);
             this.dataGridView1.TabIndex = 8;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtItemName);
             this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.btnAddItem);
             this.groupBox1.Controls.Add(this.btnClear);
             this.groupBox1.Controls.Add(this.txtUnitPrice);
             this.groupBox1.Controls.Add(this.txtQty);
-            this.groupBox1.Controls.Add(this.cmbItemName);
             this.groupBox1.Controls.Add(this.cmbItemCode);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
@@ -181,7 +160,14 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Items";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // txtItemName
+            // 
+            this.txtItemName.Enabled = false;
+            this.txtItemName.Location = new System.Drawing.Point(67, 55);
+            this.txtItemName.Name = "txtItemName";
+            this.txtItemName.Size = new System.Drawing.Size(191, 20);
+            this.txtItemName.TabIndex = 16;
             // 
             // btnDelete
             // 
@@ -216,6 +202,7 @@
             // 
             // txtUnitPrice
             // 
+            this.txtUnitPrice.Enabled = false;
             this.txtUnitPrice.Location = new System.Drawing.Point(67, 107);
             this.txtUnitPrice.Name = "txtUnitPrice";
             this.txtUnitPrice.Size = new System.Drawing.Size(191, 20);
@@ -228,25 +215,8 @@
             this.txtQty.Size = new System.Drawing.Size(191, 20);
             this.txtQty.TabIndex = 10;
             // 
-            // cmbItemName
-            // 
-            this.cmbItemName.DataSource = this.itemBindingSource1;
-            this.cmbItemName.DisplayMember = "itemName";
-            this.cmbItemName.FormattingEnabled = true;
-            this.cmbItemName.Location = new System.Drawing.Point(67, 54);
-            this.cmbItemName.Name = "cmbItemName";
-            this.cmbItemName.Size = new System.Drawing.Size(191, 21);
-            this.cmbItemName.TabIndex = 11;
-            this.cmbItemName.ValueMember = "itemName";
-            // 
-            // itemBindingSource1
-            // 
-            this.itemBindingSource1.DataMember = "item";
-            this.itemBindingSource1.DataSource = this.lankaTiles2DataSet2;
-            // 
             // cmbItemCode
             // 
-            this.cmbItemCode.DataSource = this.itemBindingSource;
             this.cmbItemCode.DisplayMember = "itemCode";
             this.cmbItemCode.FormattingEnabled = true;
             this.cmbItemCode.Location = new System.Drawing.Point(67, 27);
@@ -255,11 +225,6 @@
             this.cmbItemCode.TabIndex = 10;
             this.cmbItemCode.ValueMember = "itemCode";
             this.cmbItemCode.SelectedIndexChanged += new System.EventHandler(this.cmbItemCode_SelectedIndexChanged);
-            // 
-            // itemBindingSource
-            // 
-            this.itemBindingSource.DataMember = "item";
-            this.itemBindingSource.DataSource = this.lankaTiles2DataSet2;
             // 
             // label8
             // 
@@ -317,25 +282,6 @@
             this.btnIssue.UseVisualStyleBackColor = true;
             this.btnIssue.Click += new System.EventHandler(this.btnIssue_Click);
             // 
-            // lankaTiles2DataSet1
-            // 
-            this.lankaTiles2DataSet1.DataSetName = "LankaTiles2DataSet1";
-            this.lankaTiles2DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // lankaTiles2DataSet1BindingSource
-            // 
-            this.lankaTiles2DataSet1BindingSource.DataSource = this.lankaTiles2DataSet1;
-            this.lankaTiles2DataSet1BindingSource.Position = 0;
-            this.lankaTiles2DataSet1BindingSource.CurrentChanged += new System.EventHandler(this.lankaTiles2DataSet1BindingSource_CurrentChanged);
-            // 
-            // warehousesTableAdapter
-            // 
-            this.warehousesTableAdapter.ClearBeforeFill = true;
-            // 
-            // itemTableAdapter
-            // 
-            this.itemTableAdapter.ClearBeforeFill = true;
-            // 
             // IssueTON
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -353,18 +299,15 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtTONNo);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "IssueTON";
-            this.Text = "Issue TON";
+            this.Text = "Issue Transfer Out Note";
             this.Load += new System.EventHandler(this.IssueTON_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.warehousesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lankaTiles2DataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lankaTiles2DataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lankaTiles2DataSet1BindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -384,7 +327,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtUnitPrice;
         private System.Windows.Forms.TextBox txtQty;
-        private System.Windows.Forms.ComboBox cmbItemName;
         private System.Windows.Forms.ComboBox cmbItemCode;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -395,13 +337,6 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnIssue;
-        private LankaTiles2DataSet1 lankaTiles2DataSet1;
-        private System.Windows.Forms.BindingSource lankaTiles2DataSet1BindingSource;
-        private LankaTiles2DataSet2 lankaTiles2DataSet2;
-        private System.Windows.Forms.BindingSource warehousesBindingSource;
-        private LankaTiles2DataSet2TableAdapters.WarehousesTableAdapter warehousesTableAdapter;
-        private System.Windows.Forms.BindingSource itemBindingSource;
-        private LankaTiles2DataSet2TableAdapters.itemTableAdapter itemTableAdapter;
-        private System.Windows.Forms.BindingSource itemBindingSource1;
+        private System.Windows.Forms.TextBox txtItemName;
     }
 }

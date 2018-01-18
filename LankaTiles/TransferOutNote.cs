@@ -47,7 +47,8 @@ namespace LankaTiles
         {
             db = new Database();
            dt = new DataTable();
-            dt = db.select("select * from TON");
+            dt = db.select("SELECT TONID AS ID, [date] AS [Date], fromLocation AS [From], "+
+                "destination AS [To], IsRecieved AS [Delivary Status] FROM TON");
             return dt;
         }
 
@@ -55,7 +56,9 @@ namespace LankaTiles
         {
             db = new Database();
             dt = new DataTable();
-            dt = db.select("select * from TONDetails where TONID = " + id + "");
+            dt = db.select("SELECT TONDetails.TONID AS ID, item.itemName AS [Item Name],"+
+                " TONDetails.qty AS Quantity FROM TONDetails INNER JOIN item ON "+
+                "TONDetails.itemID = item.itemID WHERE(TONDetails.TONID = " + id + ")");
             return dt;
         }
 
